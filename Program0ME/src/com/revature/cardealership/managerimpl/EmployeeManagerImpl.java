@@ -1,10 +1,17 @@
 package com.revature.cardealership.managerimpl;
 
 import com.revature.cardealership.managerinterface.EmployeeManager;
+import com.revature.cardealership.managerinterface.UserManager;
 import com.revature.cardealership.pojo.Car;
 import com.revature.cardealership.pojo.CarLot;
+import com.revature.cardealership.pojo.Employee;
+import com.revature.cardealership.pojo.User;
+import com.revature.cardealership.pojo.Inventory;
 
-public class EmployeeManagerImpl implements EmployeeManager {
+public class EmployeeManagerImpl implements EmployeeManager, UserManager {
+	
+	EmployeeManager el = new EmployeeManagerImpl();
+	
 
 
 	@Override
@@ -49,6 +56,22 @@ public class EmployeeManagerImpl implements EmployeeManager {
 	public void removeCar(CarLot carLot, Car car) {
 		carLot.getCarLot().remove(car);
 
+	}
+
+
+	@Override
+	public void createAnAccount(String firstName, String lastName, String userId, String password) {
+		Employee newEmployee = new Employee(firstName, lastName, userId, password);
+		
+		el.
+
+	}
+
+
+	@Override
+	public void login(User user) {
+		// TODO Auto-generated method stub
+		
 	}
 
 
