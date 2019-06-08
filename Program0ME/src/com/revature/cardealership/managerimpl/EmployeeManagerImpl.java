@@ -8,7 +8,7 @@ import com.revature.cardealership.pojo.Employee;
 import com.revature.cardealership.pojo.Offer;
 import com.revature.cardealership.pojo.User;
 
-public class EmployeeManagerImpl implements EmployeeManager, UserManager {
+public class EmployeeManagerImpl implements EmployeeManager {
 	@Override
 	public Offer acceptOffer(Car car) {
 		int highest = 0;
@@ -72,7 +72,13 @@ public class EmployeeManagerImpl implements EmployeeManager, UserManager {
 		
 
 	}
-
+	
+	@Override
+	public void viewAllCars(CarLot carLot) {
+		for(Car car : carLot.getCarLot()) {
+			System.out.println(car.toString());
+		}
+	}
 
 	@Override
 	public void login(User user) {

@@ -100,4 +100,19 @@ public class UserInputUtility {
 		
 			return input;
 	}
+	
+	public static double offerAmount() {
+		double amount;
+		validInput = false;
+		
+			while(!SCAN.hasNextDouble()) {
+				System.out.println("Please Enter A Valid Offer Price: ");
+				SCAN.next();
+			}
+			
+			amount = SCAN.nextDouble();
+			SCAN.nextLine();
+			
+			return amount;
+	}
 }

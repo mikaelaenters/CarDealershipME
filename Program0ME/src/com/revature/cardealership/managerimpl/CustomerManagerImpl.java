@@ -8,8 +8,9 @@ import com.revature.cardealership.pojo.Customer;
 import com.revature.cardealership.pojo.Inventory;
 import com.revature.cardealership.pojo.Offer;
 import com.revature.cardealership.pojo.User;
+import com.revature.cardealership.utilities.UserInputUtility;
 
-public class CustomerManagerImpl implements CustomerManager, UserManager {
+public class CustomerManagerImpl implements CustomerManager {
 
 	@Override
 	public void viewAllCars(CarLot carLot) {
@@ -19,16 +20,39 @@ public class CustomerManagerImpl implements CustomerManager, UserManager {
 	}
 
 	@Override
-	public void createAnOffer(Customer customer, Car car, double offerAmount, Inventory inventory) {
-		// TODO MAP CAR TO LIST OFF OFFERS ON IT. THEN ITTER OVER USING ENTRY MAP THING
-		//first check if customer has already made this off if so let them know
-		//if not let them create.
-		//add to map
+	public void createAnOffer(Customer customer, Car car, Inventory inventory) {
 		
-		Offer newOffer = new Offer(customer, car, offerAmount);
-		car.getCarOffers().add(newOffer);
-		inventory.getCurrentCarOffers().put(car, car.getCarOffers());
+		if(inventory.getCurrentCarOffers().containsValue(customer)) {
+			System.out.println("You've Already Made An Offer on THIS Car!");
+		}
+		else {
+			double offerAmount;
+			boolean validOfferAmount;
+			
+			do {
+				offerAmount = UserInputUtility.offerAmount();
+				validOfferAmount = true;
+				
+					for(int i = 0; i < car.getCarOffers().size(); i++) {
+						if(car.getCarOffers().get(i).getOfferAmount() >= offerAmount) {
+							System.out.println("There is currently a higher offer.\n"
+									+ "Please Create An Offer Higher Than $"
+									+ car.getCarOffers().get(i).getOfferAmount());
+							validOfferAmount = false;
+							break;
+						}
+					}
+					
+					if(validOfferAmount) {
+						Offer newOffer = new Offer(customer, car, offerAmount);
+						car.getCarOffers().add(newOffer);
+						inventory.getCurrentCarOffers().put(car, car.getCarOffers());
+					}
+					
+
+			}while(!validOfferAmount);
 		
+		}
 	}
 
 	@Override
