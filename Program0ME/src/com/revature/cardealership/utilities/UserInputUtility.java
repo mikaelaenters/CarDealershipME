@@ -33,7 +33,7 @@ public class UserInputUtility {
 		return input;
 	}
 	
-	public static int employeeMenu(int min, int max) {
+	public static int menuValidation(int min, int max) {
 		int input;
 		validInput = false;
 			
@@ -114,5 +114,14 @@ public class UserInputUtility {
 			SCAN.nextLine();
 			
 			return amount;
+	}
+	
+	public static String retrieveUserId() {
+		System.out.println("Please Enter Your Username: ");
+		String input = SCAN.next();
+		SCAN.nextLine();
+		
+		return input;
+			
 	}
 }

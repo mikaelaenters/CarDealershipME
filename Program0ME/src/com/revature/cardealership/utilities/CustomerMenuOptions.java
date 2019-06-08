@@ -7,14 +7,17 @@ import com.revature.cardealership.pojo.CarLot;
 import com.revature.cardealership.pojo.Customer;
 import com.revature.cardealership.pojo.Inventory;
 
-public class CustomerMenuOptions {
+public class CustomerMenuOptions implements CustomerMenuManager {
 	
 	private static CustomerManager customerManager = new CustomerManagerImpl();
+	
+	@Override
 	public void option1(CarLot carLot) {
 		System.out.println("Here Are All the Current Cars on the Lot:");
 		customerManager.viewAllCars(carLot);
 	}
 	
+	@Override
 	public void option2(Customer customer, CarLot carLot, Inventory inventory) {
 		int i = 0;
 			System.out.println("What Car Would You Like to OFFER On?");
@@ -36,6 +39,7 @@ public class CustomerMenuOptions {
 			}
 	}
 	
+	@Override
 	public void option3(Customer customer) {
 		customerManager.viewOwnedCars(customer);
 	}
