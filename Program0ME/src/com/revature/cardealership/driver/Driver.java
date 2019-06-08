@@ -1,6 +1,7 @@
 package com.revature.cardealership.driver;
 
 import com.revature.cardealership.pojo.CarDealership;
+import com.revature.cardealership.pojo.CarLot;
 import com.revature.cardealership.pojo.Inventory;
 import com.revature.cardealership.utilities.EmployeeMenu;
 import com.revature.cardealership.utilities.EmployeeMenuManager;
@@ -18,26 +19,35 @@ public class Driver {
 	private static EmployeeMenuManager eManager = new EmployeeMenuOptions();
 	
 	public static void main(String[] args) {
-		CarDealership carDealership = null; 
-		Inventory inventory = null;
+		CarDealership carDealership = new CarDealership(); 
+		Inventory inventory = new Inventory();
+		CarLot carLot = new CarLot();
 		welcome.display(carDealership);
 		login.display(carDealership);
 		int loginOption = UserInputUtility.getNumber(1, 2);
 		
 		if(loginOption == 2) {
-		employeeMenu.display(carDealership);
-		//Actually login here....
-		int employeeOption = UserInputUtility.employeeMenu(1, 3);
-		switch(employeeOption) {
-		case 1: eManager.option1(inventory);
-			break;
-		case 2:System.out.println("Option 2");
-			break;
-		case 3:System.out.println("Option 3");
-			break;
-		}
-		}
+			int employeeOption;
+			do {
+				employeeMenu.display(carDealership);
+				//Actually login here....
+				employeeOption = UserInputUtility.employeeMenu(1, 6);
+				switch(employeeOption) {
+				case 1: eManager.option1(inventory);
+					break;
+				case 2: eManager.option2(inventory);
+					break;
+				case 3: eManager.option3(carLot);
+					break;
+				case 4: eManager.option4(carLot);
+					break;
+				case 5: break;
+				case 6: System.out.println("Logging Out...");
+					break;
+				}
+			}while(employeeOption != 6);
 
+		}
 	}
 
 }

@@ -13,27 +13,19 @@ public class EmployeeManagerImpl implements EmployeeManager, UserManager {
 	public Offer acceptOffer(Car car) {
 		int highest = 0;
 			
-		
 			if(car.getCarOffers().size() == 1) {                     //If there is only one offer on the car
-				car.getCarOffers().get(0).setAccepted(true);
-//				car.getCarOffers().get(0).setRejected(false);
-				car.getCarOffers().get(0).setPending(false);	
+				car.getCarOffers().get(highest).setAccepted(true);
+				car.getCarOffers().get(highest).setPending(false);	
 			}
 			else {
 				for(int i = 1; i < car.getCarOffers().size(); i++) {
 					if(car.getCarOffers().get(highest).getOfferAmount() < car.getCarOffers().get(i).getOfferAmount()) {
-						
-//						car.getCarOffers().get(highest).setAccepted(false);            //Reject all offers that are lower &change other booleans
-//						car.getCarOffers().get(highest).setRejected(true);
-//						car.getCarOffers().get(highest).setPending(false);
-						
 						highest = i;
 					}
 				}
 				
 				car.getCarOffers().get(highest).setAccepted(true);              //Accept the highest offer 
-//				car.getCarOffers().get(highest).setRejected(false);
-//				car.getCarOffers().get(highest).setPending(false);
+				car.getCarOffers().get(highest).setPending(false);
 			}
 			
 			return car.getCarOffers().get(highest);
@@ -41,15 +33,35 @@ public class EmployeeManagerImpl implements EmployeeManager, UserManager {
 
 
 	@Override
-	public void addCar(CarLot carLot, Car car) {
-		carLot.getCarLot().add(car);
-
+	public Offer rejectOffer(Car car) {
+		int lowest = 0;
+		
+		if(car.getCarOffers().size() == 1) {                     //If there is only one offer on the car
+			car.getCarOffers().get(lowest).setRejected(true);
+			car.getCarOffers().get(lowest).setPending(false);	
+		}
+		else {
+			for(int i = 1; i < car.getCarOffers().size(); i++) {
+				if(car.getCarOffers().get(lowest).getOfferAmount() > car.getCarOffers().get(i).getOfferAmount()) {
+					lowest = i;
+				}
+			}
+			
+			car.getCarOffers().get(lowest).setRejected(true);              //Reject the Lowest offer 
+			car.getCarOffers().get(lowest).setPending(false);
+		}
+		
+		return car.getCarOffers().get(lowest);
+	}
+	
+	@Override
+	public void addCar(CarLot carLot, String make, String model) {
+		carLot.addCarToLot(make, model);
 	}
 
 	@Override
-	public void removeCar(CarLot carLot, Car car) {
-		carLot.getCarLot().remove(car);
-
+	public void removeCar(CarLot carLot, int index) {
+		carLot.removeCarFromLot(index);
 	}
 
 

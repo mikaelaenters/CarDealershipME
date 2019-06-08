@@ -83,4 +83,21 @@ public class UserInputUtility {
 
 		return input;
 	}
+	
+	public static String makeAndModelPrompt(String reUsable) {
+		String input = "";
+		validInput = false;
+		
+		System.out.println("Please Enter the " + reUsable + " of the Car:");
+		
+			while(!SCAN.hasNext()) {
+				System.out.println("Please Enter a Valid " + reUsable + " of the Car:");
+				SCAN.next();
+			}
+			
+			input = SCAN.next();
+			SCAN.nextLine();
+		
+			return input;
+	}
 }
