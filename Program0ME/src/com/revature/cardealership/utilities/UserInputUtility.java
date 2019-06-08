@@ -124,4 +124,40 @@ public class UserInputUtility {
 		return input;
 			
 	}
+	
+//	public static int customerOrEmployee(int min, int max) {
+//		int input;
+//		validInput = false;
+//		
+//		System.out.println("Are You A Customer Or Employee?\nEnter 1 for Customer\n"
+//				+ "Enter 2 for Employee");
+//		
+//		do {
+//			while(!SCAN.hasNextInt()) {
+//				System.out.println("Please Enter A Number: ");
+//				SCAN.next();
+//			}
+//			
+//				input = SCAN.nextInt();
+//				SCAN.nextLine();
+//				
+//				if (input < min || input > max) {
+//					System.out.println("Please Enter a Valid Car ID Number");
+//				}
+//				else {
+//					validInput = true;
+//				}
+//		
+//		}while(!validInput);
+//
+//		return input;
+//	}
+	
+	public static String getAccountInfo() {
+		String input = SCAN.next();
+		SCAN.nextLine();
+		
+		return input;
+			
+	}
 }

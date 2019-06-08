@@ -7,11 +7,9 @@ public class Customer extends User {
 	private List<Car> ownedCars;
 	private double totalCarPrice;   //This will get set when they get a car
 	//Constructors;
-	public Customer(String firstName, String lastName, String userId, String password) {
+	public Customer(String userId, String password) {
 		this.userId = userId;
 		this.password = password;
-		this.firstName = firstName;
-		this.lastName = lastName;
 	}
 
 	//Getters &Setters;

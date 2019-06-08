@@ -66,8 +66,8 @@ public class EmployeeManagerImpl implements EmployeeManager {
 
 
 	@Override
-	public void createAnAccount(String firstName, String lastName, String userId, String password) {
-		Employee newEmployee = new Employee(firstName, lastName, userId, password);
+	public User createAnAccount(String userId, String password) {
+		return new Employee(userId, password);
 		
 		
 

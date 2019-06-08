@@ -69,8 +69,8 @@ public class CustomerManagerImpl implements CustomerManager {
 	}
 
 	@Override
-	public void createAnAccount(String firstName, String lastName, String userId, String password) {
-		Customer newCustomer = new Customer(firstName, lastName, userId, password);
+	public User createAnAccount(String userId, String password) {
+		return new Customer(userId, password);
 		//TODO 
 		//Add to list of Accounts in System
 		
