@@ -12,10 +12,12 @@ public class Car {
 	//private boolean owned;
 	private double monthlyPayment;
 	
+	
 	//Constructors;
 	public Car(String carMake, String carModel) {
 		this.carMake = carMake;
 		this.carModel = carModel;
+		
 	}
 	
 	//Getters &setters;
@@ -51,9 +53,7 @@ public class Car {
 	public String getCarModel() {
 		return this.carModel;
 	}
-	
-	
-	
+
 	public List<Offer> getCarOffers() {
 		return this.carOffers;
 	}

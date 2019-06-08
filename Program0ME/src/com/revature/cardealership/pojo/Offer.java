@@ -68,4 +68,11 @@ public class Offer {
 	public void setOfferId(int offerId) {
 		this.offerId = offerId;
 	}
+
+	@Override
+	public String toString() {
+		return "Offer [customer=" + customer + ", car=" + car + ", offerAmount=" + offerAmount + ", offerId=" + offerId
+				+ ", accepted=" + accepted + "]";
+	}
+	
 }
