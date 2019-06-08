@@ -1,22 +1,16 @@
 package com.revature.cardealership.driver;
 
-import com.revature.cardealership.managerimpl.CustomerManagerImpl;
-import com.revature.cardealership.managerinterface.CustomerManager;
+import java.io.EOFException;
+
+import com.revature.cardealership.daos.InventoryDAO;
+import com.revature.cardealership.daos.InventorySerializeDAO;
 import com.revature.cardealership.pojo.CarLot;
 import com.revature.cardealership.pojo.Customer;
 import com.revature.cardealership.pojo.Employee;
 import com.revature.cardealership.pojo.Inventory;
-import com.revature.cardealership.utilities.CustomerMenu;
-import com.revature.cardealership.utilities.CustomerMenuManager;
-import com.revature.cardealership.utilities.CustomerMenuOptions;
 import com.revature.cardealership.utilities.CustomerScreen;
-import com.revature.cardealership.utilities.EmployeeMenu;
-import com.revature.cardealership.utilities.EmployeeMenuManager;
-import com.revature.cardealership.utilities.EmployeeMenuOptions;
 import com.revature.cardealership.utilities.EmployeeScreen;
 import com.revature.cardealership.utilities.LoginScreen;
-import com.revature.cardealership.utilities.LoginValidation;
-import com.revature.cardealership.utilities.LoginValidationImpl;
 import com.revature.cardealership.utilities.Screen;
 import com.revature.cardealership.utilities.UserInputUtility;
 import com.revature.cardealership.utilities.WelcomeScreen;
@@ -29,13 +23,60 @@ public class Driver {
 	private static Screen customerScreen = new CustomerScreen();
 	private static Screen employeeScreen = new EmployeeScreen();
 	
+	private static InventoryDAO idao = new InventorySerializeDAO();
+	
 	public static void main(String[] args) { 
-		Inventory inventory = new Inventory();
-		CarLot carLot = new CarLot();
+		
+		
+		Inventory inventory;
+		
+		if(idao.loadInventory() == null) {
+			inventory = new Inventory();
+			CarLot carLot = inventory.getCarLot();
+			Customer customer;
+			Employee employee;
+			int input;	
+			
+			welcome.display(inventory);
+			
+			login.display(inventory);
+			
+			int loginOption = UserInputUtility.getNumber(1, 2);
+			
+			
+			if(loginOption == 1) {
+				customer = (Customer) customerScreen.display(inventory);
+				System.out.println("Thank You for Logging In!\n");
+				do {
+					input = customerScreen.menuOptions(inventory, carLot, customer);
+				}while(input != 5);
+				
+				System.out.println("Logging Out... ");
+				idao.saveInventory(inventory);
+				System.exit(0);
+			}
+		
+			else if(loginOption == 2) {
+				employee = (Employee) employeeScreen.display(inventory); 
+				System.out.println("Thank You for Logging In!\n");
+				do {
+					input = employeeScreen.menuOptions(inventory, carLot, employee);
+				}while(input != 6);
+				
+				System.out.println("Logging Out...");
+				idao.saveInventory(inventory);
+				System.exit(0);	
+			}
+			
+		
+		}
+		
+		else {
+		inventory = idao.loadInventory();
+		CarLot carLot = inventory.getCarLot();
 		Customer customer;
 		Employee employee;
-		int input;
-		
+		int input;	
 		
 		welcome.display(inventory);
 		
@@ -52,6 +93,7 @@ public class Driver {
 			}while(input != 5);
 			
 			System.out.println("Logging Out... ");
+			idao.saveInventory(inventory);
 			System.exit(0);
 		}
 	
@@ -63,9 +105,10 @@ public class Driver {
 			}while(input != 6);
 			
 			System.out.println("Logging Out...");
+			idao.saveInventory(inventory);
 			System.exit(0);	
 		}
 		
 	}
-
+	}
 }
