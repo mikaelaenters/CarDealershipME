@@ -1,6 +1,8 @@
 package com.revature.cardealership.pojo;
 
-public abstract class User {
+import java.io.Serializable;
+
+public abstract class User implements Serializable {
 	//Fields;
 	protected String userId,
 	                 password,

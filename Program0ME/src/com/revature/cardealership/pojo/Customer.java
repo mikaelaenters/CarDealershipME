@@ -1,8 +1,9 @@
 package com.revature.cardealership.pojo;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Customer extends User {
+public class Customer extends User implements Serializable{
 	//Fields;
 	private List<Car> ownedCars;
 	private double totalCarPrice;   //This will get set when they get a car

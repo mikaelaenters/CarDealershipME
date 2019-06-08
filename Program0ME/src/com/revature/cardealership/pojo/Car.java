@@ -1,8 +1,9 @@
 package com.revature.cardealership.pojo;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Car {
+public class Car implements Serializable {
 	//Fields;
 	private String ownerFirstName,
 				   ownerLastName, 

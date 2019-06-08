@@ -1,9 +1,10 @@
 package com.revature.cardealership.pojo;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CarLot {
+public class CarLot implements Serializable {
 	private List<Car> carLot;
 
 	public CarLot() {

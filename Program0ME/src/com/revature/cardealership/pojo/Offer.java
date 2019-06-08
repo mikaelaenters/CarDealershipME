@@ -1,6 +1,8 @@
 package com.revature.cardealership.pojo;
 
-public class Offer {
+import java.io.Serializable;
+
+public class Offer implements Serializable{
 
 	//Fields;
 	private Customer customer;

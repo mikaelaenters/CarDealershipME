@@ -1,6 +1,8 @@
 package com.revature.cardealership.pojo;
 
-public class Employee extends User {
+import java.io.Serializable;
+
+public class Employee extends User implements Serializable {
 	
 	
 	public Employee(String userId, String password) {
