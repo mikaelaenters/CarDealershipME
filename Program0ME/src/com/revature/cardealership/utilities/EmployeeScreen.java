@@ -2,12 +2,16 @@ package com.revature.cardealership.utilities;
 
 import com.revature.cardealership.managerimpl.EmployeeManagerImpl;
 import com.revature.cardealership.managerinterface.EmployeeManager;
+import com.revature.cardealership.pojo.CarLot;
+import com.revature.cardealership.pojo.Customer;
 import com.revature.cardealership.pojo.Inventory;
 import com.revature.cardealership.pojo.User;
 
 public class EmployeeScreen implements Screen {
 	private static LoginValidation validLogin = new LoginValidationImpl();
 	private static  EmployeeManager eManager = new EmployeeManagerImpl();
+	private static PromptScreen employeeMenuScreen = new EmployeeMenu();
+	private static EmployeeMenuManager eOptions = new EmployeeMenuOptions();
 	private String userName,
 	   password;
 	public int employeeIndex;
@@ -41,13 +45,37 @@ public class EmployeeScreen implements Screen {
 							System.out.println("Please Enter Your Password: ");
 							password = UserInputUtility.getAccountInfo();
 					
-							 return eManager.createAnAccount(userName, password);
+							 return eManager.createAnAccount(userName, password, inventory);
 									
 				}
 
 				}while(employeeIndex == -1);
 			
 			return inventory.getEmployeeList().get(employeeIndex);
+	}
+
+	@Override
+	public int menuOptions(Inventory inventory, CarLot carLot, User employee) {
+		employeeMenuScreen.display(inventory);
+		
+		int employeeOption = UserInputUtility.menuValidation(1, 6);
+		
+		switch(employeeOption) {
+		case 1: eOptions.option1(inventory);
+			break;
+		case 2:	eOptions.option2(inventory);
+			break;
+		case 3: eOptions.option3(carLot);
+			break;
+		case 4: eOptions.option4(carLot); 
+			break;
+		case 5: break;
+		}
+		
+		
+		return employeeOption;
+		
+		
 	}
 
 }

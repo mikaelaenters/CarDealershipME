@@ -1,9 +1,9 @@
 package com.revature.cardealership.pojo;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 public class Inventory {
 	
@@ -11,11 +11,16 @@ public class Inventory {
 	private List<Employee> employeeList;
 	private List<Customer> customerList;
 	private Map<Car,List<Offer>> currentCarOffers;
+	private CarLot carLot;
+
 	
 	
 	public Inventory() {
+		employeeList = new ArrayList<Employee>();
+		customerList = new ArrayList<Customer>();
 		currentCarOffers = new HashMap<Car, List<Offer>>();
 	}
+	
 	//Getters &Setters;
 	public Map<Car, List<Offer>> getCurrentCarOffers() {
 		return currentCarOffers;
@@ -40,6 +45,15 @@ public class Inventory {
 	public List<Customer> getCustomerList() {
 		return customerList;
 	}
+
+	public CarLot getCarLot() {
+		return carLot;
+	}
+
+	public void setCarLot(CarLot carLot) {
+		this.carLot = carLot;
+	}
+
 	
 	
 	

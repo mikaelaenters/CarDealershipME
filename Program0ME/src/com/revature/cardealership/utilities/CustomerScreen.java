@@ -45,7 +45,7 @@ public class CustomerScreen implements Screen {
 						System.out.println("Please Enter Your Password: ");
 						password = UserInputUtility.getAccountInfo();
 				
-						return cManager.createAnAccount(userName, password);	
+						return cManager.createAnAccount(userName, password, inventory);	
 			}
 
 			}while(customerIndex == -1);
@@ -68,6 +68,8 @@ public class CustomerScreen implements Screen {
 			break;
 		case 3: cOptions.option3((Customer)customer);
 			break;
+		case 4: break;
+		case 5: break;
 		}
 		
 		

@@ -69,18 +69,11 @@ public class CustomerManagerImpl implements CustomerManager {
 	}
 
 	@Override
-	public User createAnAccount(String userId, String password) {
-		return new Customer(userId, password);
-		//TODO 
-		//Add to list of Accounts in System
-		
-
+	public User createAnAccount(String userId, String password, Inventory inventory) {
+		Customer newCustomer = new Customer(userId, password);
+		inventory.getCustomerList().add(newCustomer);
+		return newCustomer;
 	}
 
-	@Override
-	public void login(User user) {
-		// TODO Auto-generated method stub
-		
-	}
 
 }

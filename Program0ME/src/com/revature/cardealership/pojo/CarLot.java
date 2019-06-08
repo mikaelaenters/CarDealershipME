@@ -4,9 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CarLot {
-	private List<Car> carLot = new ArrayList<Car>();
+	private List<Car> carLot;
 
 	public CarLot() {
+		carLot = new ArrayList<Car>();
 	}
 	
 	public List<Car> getCarLot() {
