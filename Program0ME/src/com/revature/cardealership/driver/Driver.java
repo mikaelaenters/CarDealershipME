@@ -72,43 +72,42 @@ public class Driver {
 		}
 		
 		else {
-		inventory = idao.loadInventory();
-		CarLot carLot = inventory.getCarLot();
-		Customer customer;
-		Employee employee;
-		int input;	
-		
-		welcome.display(inventory);
-		
-		login.display(inventory);
-		
-		int loginOption = UserInputUtility.getNumber(1, 2);
-		
-		
-		if(loginOption == 1) {
-			customer = (Customer) customerScreen.display(inventory);
-			System.out.println("Thank You for Logging In!\n");
-			do {
-				input = customerScreen.menuOptions(inventory, carLot, customer);
-			}while(input != 5);
+			inventory = idao.loadInventory();
+			CarLot carLot = inventory.getCarLot();
+			Customer customer;
+			Employee employee;
+			int input;	
 			
-			System.out.println("Logging Out... ");
-			idao.saveInventory(inventory);
-			System.exit(0);
-		}
-	
-		else if(loginOption == 2) {
-			employee = (Employee) employeeScreen.display(inventory); 
-			System.out.println("Thank You for Logging In!\n");
-			do {
-				input = employeeScreen.menuOptions(inventory, carLot, employee);
-			}while(input != 6);
+			welcome.display(inventory);
 			
-			System.out.println("Logging Out...");
-			idao.saveInventory(inventory);
-			System.exit(0);	
-		}
+			login.display(inventory);
+			
+			int loginOption = UserInputUtility.getNumber(1, 2);
+			
+			
+			if(loginOption == 1) {
+				customer = (Customer) customerScreen.display(inventory);
+				System.out.println("Thank You for Logging In!\n");
+				do {
+					input = customerScreen.menuOptions(inventory, carLot, customer);
+				}while(input != 5);
+				
+				System.out.println("Logging Out... ");
+				idao.saveInventory(inventory);
+				System.exit(0);
+			}
 		
-	}
+			else if(loginOption == 2) {
+				employee = (Employee) employeeScreen.display(inventory); 
+				System.out.println("Thank You for Logging In!\n");
+				do {
+					input = employeeScreen.menuOptions(inventory, carLot, employee);
+				}while(input != 6);
+				
+				System.out.println("Logging Out...");
+				idao.saveInventory(inventory);
+				System.exit(0);	
+			}
+		}
 	}
 }

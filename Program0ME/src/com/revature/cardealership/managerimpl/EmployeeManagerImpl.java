@@ -20,13 +20,20 @@ public class EmployeeManagerImpl implements EmployeeManager {
 			else {
 				for(int i = 1; i < car.getCarOffers().size(); i++) {
 					if(car.getCarOffers().get(highest).getOfferAmount() < car.getCarOffers().get(i).getOfferAmount()) {
+						car.getCarOffers().get(highest).setPending(false);
 						highest = i;
+						
 					}
 				}
 				
-				car.getCarOffers().get(highest).setAccepted(true);              //Accept the highest offer 
+				car.getCarOffers().get(highest).setAccepted(true);              //Accept the highest offer
 				car.getCarOffers().get(highest).setPending(false);
+				car.getCarOffers().get(highest).getCustomer().setOwnedCars(car.getCarOffers().get(highest).getCar());  //Add Car to Customer's Owned Cars
+				car.getCarOffers().get(highest).getCustomer().setTotalCarPrice(car.getCarOffers().get(highest).getOfferAmount()); //Sets total car price
+				
 			}
+			
+			rejectAllPending(car); //Rejects all remaining offers in the system.
 			
 			return car.getCarOffers().get(highest);
 	}
@@ -75,8 +82,14 @@ public class EmployeeManagerImpl implements EmployeeManager {
 
 	}
 	
+	public static void rejectAllPending(Car car) {
+		for(int i = 0; i < car.getCarOffers().size(); i++) {
+			if(car.getCarOffers().get(i).isPending() == true) {
+				car.getCarOffers().get(i).setPending(false);
+			}
+		}
 
-
+	}
 
 
 }
