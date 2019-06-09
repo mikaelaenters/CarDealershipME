@@ -69,7 +69,8 @@ public class EmployeeScreen implements EScreen {
 			break;
 		case 4: eOptions.option4(carLot); 
 			break;
-		case 5: break;
+		case 5: eOptions.option5(inventory);
+			break;
 		}
 		
 		

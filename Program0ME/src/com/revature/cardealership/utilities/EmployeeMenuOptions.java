@@ -12,6 +12,7 @@ import com.revature.cardealership.pojo.CarLot;
 import com.revature.cardealership.pojo.Customer;
 import com.revature.cardealership.pojo.Inventory;
 import com.revature.cardealership.pojo.Offer;
+import com.revature.cardealership.pojo.Payment;
 
 public class EmployeeMenuOptions implements EmployeeMenuManager {
 
@@ -80,23 +81,31 @@ public class EmployeeMenuOptions implements EmployeeMenuManager {
 	
 	public void option4(CarLot carLot) {
 		int i = 0;
+		if(carLot.getCarLot().size() == 0) {
+			System.out.println("Sorry there are no cars in the lot");
+		}
+		else {
 			System.out.println("What CAR would you like to REMOVE from the Car Lot?");
-			try {
+			
 				for(Car car : carLot.getCarLot()) {
 					System.out.println("Car ID = " + i);
 					System.out.println(car.toString());
 					i++;
 				}
-				if(carLot.getCarLot().size() == 0) {
-					System.out.println("Sorry there are no cars in the lot");
-				}
-				else {
+				
 					int index = UserInputUtility.validationPrompt(0, carLot.getCarLot().size()-1);
 					employeeManager.removeCar(carLot, index);
 				}
-			}catch(NullPointerException e) {
-				//System.out.println("Sorry there are no cars in the lot");
-			}
+			
+		
+	}
+
+
+	@Override
+	public void option5(Inventory inventory) {
+		for(Payment payment : inventory.getAllPayments()) {
+			System.out.println(payment.toString());
+		}
 		
 	}
 

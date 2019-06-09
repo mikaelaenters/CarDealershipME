@@ -8,5 +8,6 @@ public interface EmployeeMenuManager {
 	public void option2(Inventory inventory);
 	public void option3(CarLot carLot);
 	public void option4(CarLot carLot);
+	public void option5(Inventory inventory);
 
 }
