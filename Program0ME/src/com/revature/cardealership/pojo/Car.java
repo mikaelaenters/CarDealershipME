@@ -10,7 +10,7 @@ public class Car implements Serializable {
 				   carModel;
 	private List<Offer> carOffers = new ArrayList<Offer>(); 
 	//private boolean owned;
-	private double monthlyPayment;
+	//private double monthlyPayment;
 	
 	
 	//Constructors;
@@ -54,13 +54,13 @@ public class Car implements Serializable {
 //		return this.owned;
 //	}
 //	
-	public void setMonthlyPayment(double monthlyPayment) {
-		this.monthlyPayment = monthlyPayment;
-	}
-
-	public double getMonthlyPayment() {
-		return this.monthlyPayment;
-	}
+//	public void setMonthlyPayment(double monthlyPayment) {
+//		this.monthlyPayment = monthlyPayment;
+//	}
+//
+//	public double getMonthlyPayment() {
+//		return this.monthlyPayment;
+//	}
 	
 	//Methods;
 	
@@ -69,6 +69,6 @@ public class Car implements Serializable {
 	}
 	@Override
 	public String toString() {
-		return "Car [carMake=" + carMake + ", carModel=" + carModel + ", monthlyPayment=" + monthlyPayment + "]";
+		return "[carMake=" + carMake + ", carModel=" + carModel + "]";
 	}
 }

@@ -8,4 +8,5 @@ public interface CustomerMenuManager {
 	public void option1(CarLot carLot);
 	public void option2(Customer customer, CarLot carLot, Inventory inventory);
 	public void option3(Customer customer);
+	public void option4(Customer customer, Inventory inventory);
 }

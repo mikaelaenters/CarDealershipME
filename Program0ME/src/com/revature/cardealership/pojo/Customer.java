@@ -6,10 +6,12 @@ import java.util.List;
 
 public class Customer extends User implements Serializable{
 	//Fields;
-	private static int currentIndex = 0;
+	private int currentIndex = 0;
 	private int customerIndex;
 	private List<Car> ownedCars = new ArrayList<Car>();
 	private double totalCarPrice;   //This will get set when they get a car
+	private double monthlyPayment;  //Must Calculate this field
+	
 	//Constructors;
 	public Customer(String userId, String password) {
 		this.userId = userId;
@@ -45,5 +47,14 @@ public class Customer extends User implements Serializable{
 	public int getCustomerIndex() {
 		return this.customerIndex;
 	}
+
+	public double getMonthlyPayment() {
+		return monthlyPayment;
+	}
+
+	public void setMonthlyPayment(double monthlyPayment) {
+		this.monthlyPayment = monthlyPayment;
+	}
+	
 	
 }

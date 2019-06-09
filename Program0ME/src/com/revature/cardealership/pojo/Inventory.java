@@ -17,6 +17,7 @@ public class Inventory implements Serializable {
 	private List<Customer> customerList;
 	private Map<Car,List<Offer>> currentCarOffers;
 	private CarLot carLot;
+	private List<Payment> allPayments;
 
 	
 	
@@ -25,6 +26,7 @@ public class Inventory implements Serializable {
 		customerList = new ArrayList<Customer>();
 		currentCarOffers = new HashMap<Car, List<Offer>>();
 		carLot = new CarLot();
+		allPayments = new ArrayList<Payment>();
 	}
 	
 	@Override
@@ -64,6 +66,14 @@ public class Inventory implements Serializable {
 
 	public void setCarLot(CarLot carLot) {
 		this.carLot = carLot;
+	}
+
+	public List<Payment> getAllPayments() {
+		return allPayments;
+	}
+
+	public void setAllPayments(List<Payment> allPayments) {
+		this.allPayments = allPayments;
 	}
 
 	

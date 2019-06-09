@@ -3,7 +3,9 @@ package com.revature.cardealership.utilities;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.revature.cardealership.managerimpl.CustomerManagerImpl;
 import com.revature.cardealership.managerimpl.EmployeeManagerImpl;
+import com.revature.cardealership.managerinterface.CustomerManager;
 import com.revature.cardealership.managerinterface.EmployeeManager;
 import com.revature.cardealership.pojo.Car;
 import com.revature.cardealership.pojo.CarLot;
@@ -14,10 +16,10 @@ import com.revature.cardealership.pojo.Offer;
 public class EmployeeMenuOptions implements EmployeeMenuManager {
 
 	private static EmployeeManager employeeManager = new EmployeeManagerImpl(); 
-	
+	private static CustomerManager customerManager = new CustomerManagerImpl();
 	
 	public void option1(Inventory inventory) {
-		//TODO Add Back Buttons!!
+		
 		int i = 0;
 		List<Car> tempList = new ArrayList<Car>();
 			
@@ -41,18 +43,18 @@ public class EmployeeMenuOptions implements EmployeeMenuManager {
 				inventory.getCustomerList().get(customer.getCustomerIndex()-1).getOwnedCars().add(currentCar);
 				
 				customer.setTotalCarPrice(acceptedOffer.getOfferAmount());  //Set totalCarPrice
-				//TODO Calculate MOnthly payments 
+				customer.setMonthlyPayment(customerManager.calculateMonthlyPayment(acceptedOffer.getOfferAmount())); //Sets Customer Monthly Payment
 				System.out.println(employeeManager.acceptOffer(tempList.get(index)).toString());
 			}
 	}
 		
 
 	public void option2(Inventory inventory) {
-		//same thing but with reject. 
-		//TODO change accept reject method. 
+	 
+		
 		int i = 0;
 		List<Car> tempList = new ArrayList<Car>();
-			if(inventory.getCurrentCarOffers().isEmpty()) {
+			if(inventory.getCurrentCarOffers() == null) {
 				System.out.println("Sorry There Are NO CURRENT OFFERS To Reject!");
 			}
 			else {

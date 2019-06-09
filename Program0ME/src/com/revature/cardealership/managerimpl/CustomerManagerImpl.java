@@ -6,7 +6,7 @@ import com.revature.cardealership.pojo.CarLot;
 import com.revature.cardealership.pojo.Customer;
 import com.revature.cardealership.pojo.Inventory;
 import com.revature.cardealership.pojo.Offer;
-import com.revature.cardealership.pojo.User;
+import com.revature.cardealership.pojo.Payment;
 import com.revature.cardealership.utilities.UserInputUtility;
 
 public class CustomerManagerImpl implements CustomerManager {
@@ -52,7 +52,7 @@ public class CustomerManagerImpl implements CustomerManager {
 		}
 		else {
 			for(Car car : customer.getOwnedCars()) {
-				System.out.println(car.toString());
+				System.out.println(car.toString() + " [monthlyPayment= " + customer.getMonthlyPayment() + ", totalAmountOwed= " + customer.getTotalCarPrice() +"]");
 			}
 		}
 	}
@@ -69,6 +69,22 @@ public class CustomerManagerImpl implements CustomerManager {
 		inventory.getCustomerList().add(newCustomer);
 		return newCustomer;
 	}
+
+	@Override
+	public double calculateMonthlyPayment(double totalPrice) {
+		return totalPrice/12;
+		
+	}
+
+	@Override
+	public void makeAMonthlyPayment(Customer customer, int carIndex, Inventory inventory) {
+		customer.setTotalCarPrice(customer.getTotalCarPrice()-customer.getMonthlyPayment());
+		System.out.println("[monthlyPayment= " + customer.getMonthlyPayment() + ", totalAmountOwed= " + customer.getTotalCarPrice() +"]");
+		inventory.getAllPayments().add(new Payment(customer, customer.getMonthlyPayment(), customer.getOwnedCars().get(carIndex)));
+	}
+	
+	
+	
 
 
 }

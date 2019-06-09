@@ -68,7 +68,8 @@ public class CustomerScreen implements CScreen {
 			break;
 		case 3: cOptions.option3((Customer)customer);
 			break;
-		case 4: break;
+		case 4: cOptions.option4(customer, inventory);
+			break;
 		case 5: break;
 		}
 		

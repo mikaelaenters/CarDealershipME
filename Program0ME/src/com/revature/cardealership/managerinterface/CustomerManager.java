@@ -12,5 +12,6 @@ public interface CustomerManager {
 	public void viewOwnedCars(Customer customer);
 	public void viewRemainingPayments(Customer customer, Car car);
 	public Customer createAnAccount(String userId, String password, Inventory inventory);
-	//public void makeAMonthlyPayment();
+	public double calculateMonthlyPayment(double totalPrice);
+	public void makeAMonthlyPayment(Customer customer, int carIndex, Inventory inventory);
 }
