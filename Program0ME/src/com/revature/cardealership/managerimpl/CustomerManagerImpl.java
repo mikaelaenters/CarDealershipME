@@ -1,7 +1,6 @@
 package com.revature.cardealership.managerimpl;
 
 import com.revature.cardealership.managerinterface.CustomerManager;
-import com.revature.cardealership.managerinterface.UserManager;
 import com.revature.cardealership.pojo.Car;
 import com.revature.cardealership.pojo.CarLot;
 import com.revature.cardealership.pojo.Customer;
@@ -20,39 +19,30 @@ public class CustomerManagerImpl implements CustomerManager {
 	}
 
 	@Override
-	public void createAnOffer(Customer customer, Car car, Inventory inventory) {
+	public Offer createAnOffer(Customer customer, Car car, Inventory inventory) {
 		
-		if(inventory.getCurrentCarOffers().containsValue(customer)) {
-			System.out.println("You've Already Made An Offer on THIS Car!");
-		}
-		else {
-			double offerAmount;
-			boolean validOfferAmount;
+		double offerAmount;
+		boolean validOfferAmount;
 			
 			do {
 				offerAmount = UserInputUtility.offerAmount();
 				validOfferAmount = true;
 				
-					for(int i = 0; i < car.getCarOffers().size(); i++) {
-						if(car.getCarOffers().get(i).getOfferAmount() >= offerAmount) {
+					for(int i = 0; i < inventory.getCurrentCarOffers().size(); i++) {
+						if(inventory.getCurrentCarOffers().get(car).get(i).getOfferAmount() >= offerAmount) {
 							System.out.println("There is currently a higher offer.\n"
 									+ "Please Create An Offer Higher Than $"
-									+ car.getCarOffers().get(i).getOfferAmount());
+									+ inventory.getCurrentCarOffers().get(car).get(i).getOfferAmount());
 							validOfferAmount = false;
 							break;
 						}
 					}
-					
-					if(validOfferAmount) {
-						Offer newOffer = new Offer(customer, car, offerAmount);
-						car.getCarOffers().add(newOffer);
-						inventory.getCurrentCarOffers().put(car, car.getCarOffers());
-					}
-					
-
 			}while(!validOfferAmount);
+			
+			Offer newOffer = new Offer(customer, car, offerAmount);
+			return newOffer;
+			
 		
-		}
 	}
 
 	@Override

@@ -6,6 +6,7 @@ import com.revature.cardealership.pojo.Car;
 import com.revature.cardealership.pojo.CarLot;
 import com.revature.cardealership.pojo.Customer;
 import com.revature.cardealership.pojo.Inventory;
+import com.revature.cardealership.pojo.Offer;
 
 public class CustomerMenuOptions implements CustomerMenuManager {
 	
@@ -20,22 +21,26 @@ public class CustomerMenuOptions implements CustomerMenuManager {
 	@Override
 	public void option2(Customer customer, CarLot carLot, Inventory inventory) {
 		int i = 0;
-			System.out.println("What Car Would You Like to OFFER On?");
-			try {
+			if(carLot.getCarLot().isEmpty()) {
+				System.out.println("Sorry There Are NO CARS Currently in the Car Lot!");
+			}
+			else {
+				System.out.println("What Car Would You Like to OFFER On?");	
 				for(Car car : carLot.getCarLot()) {
 					System.out.println("Car ID = " + i);
 					System.out.println(car.toString());
 					i++;
 				}
-				if(carLot.getCarLot().size() == 0) {
-					System.out.println("Sorry there are no cars in the lot");
-				}
-				else {
 					int index = UserInputUtility.validationPrompt(0, carLot.getCarLot().size()-1);
-					customerManager.createAnOffer(customer, carLot.getCarLot().get(index), inventory);
-				}
-			}catch(NullPointerException e) {
-				//System.out.println("Sorry there are no cars in the lot");
+					
+					Offer newOffer =customerManager.createAnOffer(customer, carLot.getCarLot().get(index), inventory);
+					
+					//carLot.getCarLot().get(index).getCarOffers().add(newOffer);
+					carLot.getCarLot().get(index).addCarOfferToList(newOffer);
+					inventory.getCurrentCarOffers().put(carLot.getCarLot().get(index), carLot.getCarLot().get(index).getCarOffers());
+		
+					System.out.println(newOffer.toString());
+					
 			}
 	}
 	

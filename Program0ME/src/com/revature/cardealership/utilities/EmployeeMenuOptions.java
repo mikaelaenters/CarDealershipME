@@ -18,21 +18,20 @@ public class EmployeeMenuOptions implements EmployeeMenuManager {
 		//TODO Add Back Buttons!!
 		int i = 0;
 		List<Car> tempList = new ArrayList<Car>();
-			System.out.println("What CAR would you like to ACCEPT an offer on?");
 			
-			try {
+			if(inventory.getCurrentCarOffers().isEmpty()) {
+				System.out.println("Sorry There Are NO CURRENT OFFERS To Accept!");
+			}
+			else {
+				System.out.println("What CAR would you like to ACCEPT an offer on?");
 				for(Car car : inventory.getCurrentCarOffers().keySet()) {
 					tempList.add(car);
 					System.out.println("Car ID = " + i);
 					System.out.println(car.toString());
 					i++;
 				}
-				System.out.println("Please Enter the CAR ID: ");
-					
 				int index = UserInputUtility.validationPrompt(0, tempList.size() - 1);
 				System.out.println(employeeManager.acceptOffer(tempList.get(index)).toString());
-			}catch(NullPointerException e) {
-				System.out.println("Sorry there are no current offers");
 			}
 	}
 		
@@ -42,9 +41,11 @@ public class EmployeeMenuOptions implements EmployeeMenuManager {
 		//TODO change accept reject method. 
 		int i = 0;
 		List<Car> tempList = new ArrayList<Car>();
-			System.out.println("What CAR would you like to REJECT an offer on?");
-			
-			try {
+			if(inventory.getCurrentCarOffers().isEmpty()) {
+				System.out.println("Sorry There Are NO CURRENT OFFERS To Reject!");
+			}
+			else {
+				System.out.println("What CAR would you like to REJECT an offer on?");
 				for(Car car : inventory.getCurrentCarOffers().keySet()) {
 					tempList.add(car);
 					System.out.println("Car ID = " + i);
@@ -54,8 +55,6 @@ public class EmployeeMenuOptions implements EmployeeMenuManager {
 					
 				int index = UserInputUtility.validationPrompt(0, tempList.size() - 1);
 				System.out.println(employeeManager.rejectOffer(tempList.get(index)).toString());
-			}catch(NullPointerException e) {
-				System.out.println("Sorry there are no current offers");
 			}
 	}
 	

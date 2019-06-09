@@ -1,15 +1,14 @@
 package com.revature.cardealership.pojo;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Car implements Serializable {
 	//Fields;
-	private String ownerFirstName,
-				   ownerLastName, 
-				   carMake,
+	private String carMake,
 				   carModel;
-	private List<Offer> carOffers; 
+	private List<Offer> carOffers = new ArrayList<Offer>(); 
 	//private boolean owned;
 	private double monthlyPayment;
 	
@@ -19,26 +18,10 @@ public class Car implements Serializable {
 		this.carMake = carMake;
 		this.carModel = carModel;
 		
+		
 	}
 	
 	//Getters &setters;
-	
-	public void setOwnerFirstName(String ownerFirstName) {
-		this.ownerFirstName = ownerFirstName;
-	}
-	
-	public String getOwnerFirstName() {
-		return this.ownerFirstName;
-	}
-	
-	public void setOwnerLastName(String ownerLastName) {
-		this.ownerLastName = ownerLastName;
-	}
-	
-	public String getOwnerLastName() {
-		return this.ownerLastName;
-	}
-
 	public void setCarMake(String carMake) {
 		this.carMake = carMake;
 	}
@@ -80,6 +63,10 @@ public class Car implements Serializable {
 	}
 	
 	//Methods;
+	
+	public void addCarOfferToList(Offer offer) {
+		this.carOffers.add(offer);
+	}
 	@Override
 	public String toString() {
 		return "Car [carMake=" + carMake + ", carModel=" + carModel + ", monthlyPayment=" + monthlyPayment + "]";

@@ -105,6 +105,8 @@ public class UserInputUtility {
 		double amount;
 		validInput = false;
 		
+		System.out.println("How Much Would You Like To Offer On The CAR?");
+		
 			while(!SCAN.hasNextDouble()) {
 				System.out.println("Please Enter A Valid Offer Price: ");
 				SCAN.next();
