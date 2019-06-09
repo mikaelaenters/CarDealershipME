@@ -59,7 +59,7 @@ public class CustomerScreen implements CScreen {
 		
 		customerMenuScreen.display(inventory);
 		
-		int customerOption = UserInputUtility.menuValidation(1, 5);
+		int customerOption = UserInputUtility.menuValidation(1, 6);
 		
 		switch(customerOption) {
 		case 1: cOptions.option1(carLot);
@@ -70,7 +70,7 @@ public class CustomerScreen implements CScreen {
 			break;
 		case 4: cOptions.option4(customer, inventory);
 			break;
-		case 5: break;
+		case 5: cOptions.option5(customer); break;
 		}
 		
 		

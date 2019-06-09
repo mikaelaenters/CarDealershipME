@@ -61,6 +61,23 @@ public class CustomerMenuOptions implements CustomerMenuManager {
 		
 		int carIndex = UserInputUtility.validationPrompt(0, customer.getOwnedCars().size()-1);
 		customerManager.makeAMonthlyPayment(customer, carIndex, inventory);
+		customer.setNumberOfPayments(customer.getNumberOfPayments() + 1); //Adds to their counter
+		
+	}
+
+	@Override
+	public void option5(Customer customer) {
+		int i = 0;
+		System.out.println("What Car Would You Like to MAKE A PAYMENT On?");
+		for(Car car : customer.getOwnedCars()) {
+			System.out.println("Car ID = " + i);
+			System.out.println(car.toString());
+			i++;
+		}
+		
+		int carIndex = UserInputUtility.validationPrompt(0, customer.getOwnedCars().size()-1);
+		
+		customerManager.viewRemainingPayments(customer, customer.getOwnedCars().get(carIndex));
 		
 	}
 }

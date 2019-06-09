@@ -11,7 +11,7 @@ public class Customer extends User implements Serializable{
 	private List<Car> ownedCars = new ArrayList<Car>();
 	private double totalCarPrice;   //This will get set when they get a car
 	private double monthlyPayment;  //Must Calculate this field
-	
+	private int numberOfPayments = 0;
 	//Constructors;
 	public Customer(String userId, String password) {
 		this.userId = userId;
@@ -54,6 +54,14 @@ public class Customer extends User implements Serializable{
 
 	public void setMonthlyPayment(double monthlyPayment) {
 		this.monthlyPayment = monthlyPayment;
+	}
+
+	public int getNumberOfPayments() {
+		return numberOfPayments;
+	}
+
+	public void setNumberOfPayments(int numberOfPayments) {
+		this.numberOfPayments = numberOfPayments;
 	}
 	
 	
