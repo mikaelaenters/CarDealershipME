@@ -1,17 +1,16 @@
 package com.revature.cardealership.driver;
 
-import java.io.EOFException;
-
 import com.revature.cardealership.daos.InventoryDAO;
 import com.revature.cardealership.daos.InventorySerializeDAO;
 import com.revature.cardealership.pojo.CarLot;
 import com.revature.cardealership.pojo.Customer;
 import com.revature.cardealership.pojo.Employee;
 import com.revature.cardealership.pojo.Inventory;
+import com.revature.cardealership.utilities.CScreen;
 import com.revature.cardealership.utilities.CustomerScreen;
+import com.revature.cardealership.utilities.EScreen;
 import com.revature.cardealership.utilities.EmployeeScreen;
 import com.revature.cardealership.utilities.LoginScreen;
-import com.revature.cardealership.utilities.Screen;
 import com.revature.cardealership.utilities.UserInputUtility;
 import com.revature.cardealership.utilities.WelcomeScreen;
 
@@ -20,8 +19,8 @@ public class Driver {
 	
 	private static WelcomeScreen welcome = new WelcomeScreen();
 	private static LoginScreen login = new LoginScreen();
-	private static Screen customerScreen = new CustomerScreen();
-	private static Screen employeeScreen = new EmployeeScreen();
+	private static CScreen customerScreen = new CustomerScreen();
+	private static EScreen employeeScreen = new EmployeeScreen();
 	
 	private static InventoryDAO idao = new InventorySerializeDAO();
 	
@@ -45,7 +44,7 @@ public class Driver {
 			
 			
 			if(loginOption == 1) {
-				customer = (Customer) customerScreen.display(inventory);
+				customer = customerScreen.display(inventory);
 				System.out.println("Thank You for Logging In!\n");
 				do {
 					input = customerScreen.menuOptions(inventory, carLot, customer);
@@ -57,7 +56,7 @@ public class Driver {
 			}
 		
 			else if(loginOption == 2) {
-				employee = (Employee) employeeScreen.display(inventory); 
+				employee = employeeScreen.display(inventory); 
 				System.out.println("Thank You for Logging In!\n");
 				do {
 					input = employeeScreen.menuOptions(inventory, carLot, employee);
@@ -86,7 +85,7 @@ public class Driver {
 			
 			
 			if(loginOption == 1) {
-				customer = (Customer) customerScreen.display(inventory);
+				customer = customerScreen.display(inventory);
 				System.out.println("Thank You for Logging In!\n");
 				do {
 					input = customerScreen.menuOptions(inventory, carLot, customer);
@@ -98,7 +97,7 @@ public class Driver {
 			}
 		
 			else if(loginOption == 2) {
-				employee = (Employee) employeeScreen.display(inventory); 
+				employee = employeeScreen.display(inventory); 
 				System.out.println("Thank You for Logging In!\n");
 				do {
 					input = employeeScreen.menuOptions(inventory, carLot, employee);

@@ -6,7 +6,6 @@ import com.revature.cardealership.pojo.CarLot;
 import com.revature.cardealership.pojo.Employee;
 import com.revature.cardealership.pojo.Inventory;
 import com.revature.cardealership.pojo.Offer;
-import com.revature.cardealership.pojo.User;
 
 public class EmployeeManagerImpl implements EmployeeManager {
 	@Override
@@ -28,9 +27,6 @@ public class EmployeeManagerImpl implements EmployeeManager {
 				
 				car.getCarOffers().get(highest).setAccepted(true);              //Accept the highest offer
 				car.getCarOffers().get(highest).setPending(false);
-				car.getCarOffers().get(highest).getCustomer().setOwnedCars(car.getCarOffers().get(highest).getCar());  //Add Car to Customer's Owned Cars
-				car.getCarOffers().get(highest).getCustomer().setTotalCarPrice(car.getCarOffers().get(highest).getOfferAmount()); //Sets total car price
-				
 			}
 			
 			rejectAllPending(car); //Rejects all remaining offers in the system.
@@ -73,7 +69,7 @@ public class EmployeeManagerImpl implements EmployeeManager {
 
 
 	@Override
-	public User createAnAccount(String userId, String password, Inventory inventory) {
+	public Employee createAnAccount(String userId, String password, Inventory inventory) {
 		Employee newEmployee = new Employee(userId, password);
 		inventory.getEmployeeList().add(newEmployee);
 		return newEmployee;

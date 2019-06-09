@@ -47,8 +47,13 @@ public class CustomerManagerImpl implements CustomerManager {
 
 	@Override
 	public void viewOwnedCars(Customer customer) {
-		for(Car car : customer.getOwnedCars()) {
-			System.out.println(car.toString());
+		if(customer.getOwnedCars() == null) {
+			System.out.println("You Don't Own Any Cars!");
+		}
+		else {
+			for(Car car : customer.getOwnedCars()) {
+				System.out.println(car.toString());
+			}
 		}
 	}
 
@@ -59,7 +64,7 @@ public class CustomerManagerImpl implements CustomerManager {
 	}
 
 	@Override
-	public User createAnAccount(String userId, String password, Inventory inventory) {
+	public Customer createAnAccount(String userId, String password, Inventory inventory) {
 		Customer newCustomer = new Customer(userId, password);
 		inventory.getCustomerList().add(newCustomer);
 		return newCustomer;

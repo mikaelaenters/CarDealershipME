@@ -3,11 +3,11 @@ package com.revature.cardealership.utilities;
 import com.revature.cardealership.managerimpl.EmployeeManagerImpl;
 import com.revature.cardealership.managerinterface.EmployeeManager;
 import com.revature.cardealership.pojo.CarLot;
-import com.revature.cardealership.pojo.Customer;
+import com.revature.cardealership.pojo.Employee;
 import com.revature.cardealership.pojo.Inventory;
 import com.revature.cardealership.pojo.User;
 
-public class EmployeeScreen implements Screen {
+public class EmployeeScreen implements EScreen {
 	private static LoginValidation validLogin = new LoginValidationImpl();
 	private static  EmployeeManager eManager = new EmployeeManagerImpl();
 	private static PromptScreen employeeMenuScreen = new EmployeeMenu();
@@ -17,7 +17,7 @@ public class EmployeeScreen implements Screen {
 	public int employeeIndex;
 	
 	@Override
-	public User display(Inventory inventory) {
+	public Employee display(Inventory inventory) {
 		
 	
 			do {
@@ -55,7 +55,7 @@ public class EmployeeScreen implements Screen {
 	}
 
 	@Override
-	public int menuOptions(Inventory inventory, CarLot carLot, User employee) {
+	public int menuOptions(Inventory inventory, CarLot carLot, Employee employee) {
 		employeeMenuScreen.display(inventory);
 		
 		int employeeOption = UserInputUtility.menuValidation(1, 6);

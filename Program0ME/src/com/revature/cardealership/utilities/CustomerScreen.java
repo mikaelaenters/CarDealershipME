@@ -7,7 +7,7 @@ import com.revature.cardealership.pojo.Customer;
 import com.revature.cardealership.pojo.Inventory;
 import com.revature.cardealership.pojo.User;
 
-public class CustomerScreen implements Screen {
+public class CustomerScreen implements CScreen {
 	
 	private static LoginValidation validLogin = new LoginValidationImpl();
 	private static  CustomerManager cManager = new CustomerManagerImpl();
@@ -19,7 +19,7 @@ public class CustomerScreen implements Screen {
 	public int customerIndex;
 	
 	@Override
-	public User display(Inventory inventory) {
+	public Customer display(Inventory inventory) {
 		do {
 			System.out.println("Do you want to LOGIN or CREATE An Account?\nEnter"
 					+ " 1 to LOGIN\nEnter 2 to CREATE An Account");
@@ -55,7 +55,7 @@ public class CustomerScreen implements Screen {
 	
 	
 	@Override
-	public int menuOptions(Inventory inventory, CarLot carLot, User customer) {
+	public int menuOptions(Inventory inventory, CarLot carLot, Customer customer) {
 		
 		customerMenuScreen.display(inventory);
 		

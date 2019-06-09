@@ -7,7 +7,9 @@ import com.revature.cardealership.managerimpl.EmployeeManagerImpl;
 import com.revature.cardealership.managerinterface.EmployeeManager;
 import com.revature.cardealership.pojo.Car;
 import com.revature.cardealership.pojo.CarLot;
+import com.revature.cardealership.pojo.Customer;
 import com.revature.cardealership.pojo.Inventory;
+import com.revature.cardealership.pojo.Offer;
 
 public class EmployeeMenuOptions implements EmployeeMenuManager {
 
@@ -31,6 +33,15 @@ public class EmployeeMenuOptions implements EmployeeMenuManager {
 					i++;
 				}
 				int index = UserInputUtility.validationPrompt(0, tempList.size() - 1);
+				Offer acceptedOffer = employeeManager.acceptOffer(tempList.get(index));
+				
+				Customer customer = acceptedOffer.getCustomer();
+				Car currentCar = tempList.get(index);
+				
+				inventory.getCustomerList().get(customer.getCustomerIndex()-1).getOwnedCars().add(currentCar);
+				
+				customer.setTotalCarPrice(acceptedOffer.getOfferAmount());  //Set totalCarPrice
+				//TODO Calculate MOnthly payments 
 				System.out.println(employeeManager.acceptOffer(tempList.get(index)).toString());
 			}
 	}
