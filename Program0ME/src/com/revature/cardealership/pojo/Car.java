@@ -9,6 +9,8 @@ public class Car implements Serializable {
 	private String carMake,
 				   carModel;
 	private List<Offer> carOffers = new ArrayList<Offer>(); 
+	private int currentCarIndex = 0;
+	private int carIndex;
 	//private boolean owned;
 	//private double monthlyPayment;
 	
@@ -17,11 +19,19 @@ public class Car implements Serializable {
 	public Car(String carMake, String carModel) {
 		this.carMake = carMake;
 		this.carModel = carModel;
-		
+		this.carIndex = getNextIndex();
 		
 	}
 	
 	//Getters &setters;
+	public int getNextIndex() {
+		return currentCarIndex + 1;
+	}
+	
+	public int getCarIndex() {
+		return this.carIndex;
+	}
+	
 	public void setCarMake(String carMake) {
 		this.carMake = carMake;
 	}

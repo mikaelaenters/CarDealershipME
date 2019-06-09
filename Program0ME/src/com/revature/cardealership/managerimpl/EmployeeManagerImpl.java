@@ -9,7 +9,7 @@ import com.revature.cardealership.pojo.Offer;
 
 public class EmployeeManagerImpl implements EmployeeManager {
 	@Override
-	public Offer acceptOffer(Car car) {
+	public Offer acceptOffer(Car car, Inventory inventory) {
 		int highest = 0;
 			
 			if(car.getCarOffers().size() == 1) {                     //If there is only one offer on the car
@@ -30,7 +30,7 @@ public class EmployeeManagerImpl implements EmployeeManager {
 			}
 			
 			rejectAllPending(car); //Rejects all remaining offers in the system.
-			
+			removeOffers(car, inventory);
 			return car.getCarOffers().get(highest);
 	}
 
@@ -63,8 +63,8 @@ public class EmployeeManagerImpl implements EmployeeManager {
 	}
 
 	@Override
-	public void removeCar(CarLot carLot, int index) {
-		carLot.removeCarFromLot(index);
+	public void removeCar(CarLot carLot, Car car) {
+		carLot.removeCarFromLot(car);
 	}
 
 
@@ -85,6 +85,12 @@ public class EmployeeManagerImpl implements EmployeeManager {
 			}
 		}
 
+	}
+	
+	public static void removeOffers(Car car, Inventory inventory) {
+		
+		inventory.getCurrentCarOffers().remove(car, car.getCarOffers());
+		
 	}
 
 

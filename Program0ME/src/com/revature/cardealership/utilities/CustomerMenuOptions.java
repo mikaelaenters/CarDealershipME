@@ -68,7 +68,7 @@ public class CustomerMenuOptions implements CustomerMenuManager {
 	@Override
 	public void option5(Customer customer) {
 		int i = 0;
-		System.out.println("What Car Would You Like to MAKE A PAYMENT On?");
+		System.out.println("What Car Would You Like To VIEW PAYMENTS On?");
 		for(Car car : customer.getOwnedCars()) {
 			System.out.println("Car ID = " + i);
 			System.out.println(car.toString());

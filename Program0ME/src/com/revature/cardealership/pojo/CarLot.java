@@ -19,7 +19,7 @@ public class CarLot implements Serializable {
 		this.carLot.add(new Car(make,model));
 	}
 	
-	public void removeCarFromLot(int index) {
-		this.carLot.remove(index);
+	public void removeCarFromLot(Car car) {
+		this.carLot.remove(car);
 	}
 }

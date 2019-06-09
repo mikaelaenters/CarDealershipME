@@ -59,7 +59,7 @@ public class CustomerManagerImpl implements CustomerManager {
 
 	@Override
 	public void viewRemainingPayments(Customer customer, Car car) {
-		System.out.println("You Have Made " + customer.getNumberOfPayments() + "on " + car.toString() 
+		System.out.println("You Have Made " + customer.getNumberOfPayments() + " Payment(s) on " + car.toString() 
 		+ " [monthlyPayment= " + customer.getMonthlyPayment() + ", "
 		+ "totalAmountOwed= " + customer.getTotalCarPrice() +"]");
 

@@ -48,7 +48,7 @@ public class Driver {
 				System.out.println("Thank You for Logging In!\n");
 				do {
 					input = customerScreen.menuOptions(inventory, carLot, customer);
-				}while(input != 5);
+				}while(input != 6);
 				
 				System.out.println("Logging Out... ");
 				idao.saveInventory(inventory);
@@ -89,7 +89,7 @@ public class Driver {
 				System.out.println("Thank You for Logging In!\n");
 				do {
 					input = customerScreen.menuOptions(inventory, carLot, customer);
-				}while(input != 5);
+				}while(input != 6);
 				
 				System.out.println("Logging Out... ");
 				idao.saveInventory(inventory);

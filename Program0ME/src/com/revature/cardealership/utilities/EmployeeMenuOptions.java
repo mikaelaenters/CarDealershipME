@@ -36,7 +36,7 @@ public class EmployeeMenuOptions implements EmployeeMenuManager {
 					i++;
 				}
 				int index = UserInputUtility.validationPrompt(0, tempList.size() - 1);
-				Offer acceptedOffer = employeeManager.acceptOffer(tempList.get(index));
+				Offer acceptedOffer = employeeManager.acceptOffer(tempList.get(index), inventory);
 				
 				Customer customer = acceptedOffer.getCustomer();
 				Car currentCar = tempList.get(index);
@@ -45,7 +45,10 @@ public class EmployeeMenuOptions implements EmployeeMenuManager {
 				
 				customer.setTotalCarPrice(acceptedOffer.getOfferAmount());  //Set totalCarPrice
 				customer.setMonthlyPayment(customerManager.calculateMonthlyPayment(acceptedOffer.getOfferAmount())); //Sets Customer Monthly Payment
-				System.out.println(employeeManager.acceptOffer(tempList.get(index)).toString());
+				System.out.println(employeeManager.acceptOffer(tempList.get(index),inventory).toString());
+				
+				//TODO Remove off lot. 
+				inventory.getCarLot().removeCarFromLot(currentCar);
 			}
 	}
 		
@@ -94,7 +97,7 @@ public class EmployeeMenuOptions implements EmployeeMenuManager {
 				}
 				
 					int index = UserInputUtility.validationPrompt(0, carLot.getCarLot().size()-1);
-					employeeManager.removeCar(carLot, index);
+					employeeManager.removeCar(carLot, carLot.getCarLot().get(index));
 				}
 			
 		
