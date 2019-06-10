@@ -14,14 +14,19 @@ public class CustomerMenuOptions implements CustomerMenuManager {
 	
 	@Override
 	public void option1(CarLot carLot) {
-		System.out.println("Here Are All the Current Cars on the Lot:");
-		customerManager.viewAllCars(carLot);
+		if(carLot.getCarLot().size() == 0) {
+			System.out.println("The Car Lot is Currently Empty!");
+		}
+		else {
+			System.out.println("Here Are All the Current Cars on the Lot:");
+			customerManager.viewAllCars(carLot);
+		}
 	}
 	
 	@Override
 	public void option2(Customer customer, CarLot carLot, Inventory inventory) {
 		int i = 0;
-			if(carLot.getCarLot().isEmpty()) {
+			if(carLot.getCarLot().size() == 0) {
 				System.out.println("Sorry There Are NO CARS Currently in the Car Lot!");
 			}
 			else {
@@ -51,33 +56,41 @@ public class CustomerMenuOptions implements CustomerMenuManager {
 
 	@Override
 	public void option4(Customer customer, Inventory inventory) {
-		int i = 0;
-		System.out.println("What Car Would You Like to MAKE A PAYMENT On?");
-		for(Car car : customer.getOwnedCars()) {
-			System.out.println("Car ID = " + i);
-			System.out.println(car.toString());
-			i++;
+		if(customer.getOwnedCars().size() ==0) {
+			System.out.println("You Don't Own Any Cars Yet!");
 		}
-		
-		int carIndex = UserInputUtility.validationPrompt(0, customer.getOwnedCars().size()-1);
-		customerManager.makeAMonthlyPayment(customer, carIndex, inventory);
-		customer.setNumberOfPayments(customer.getNumberOfPayments() + 1); //Adds to their counter
-		
+		else {
+			int i = 0;
+			System.out.println("What Car Would You Like to MAKE A PAYMENT On?");
+			for(Car car : customer.getOwnedCars()) {
+				System.out.println("Car ID = " + i);
+				System.out.println(car.toString());
+				i++;
+			}
+			
+			int carIndex = UserInputUtility.validationPrompt(0, customer.getOwnedCars().size()-1);
+			customerManager.makeAMonthlyPayment(customer, carIndex, inventory);
+			customer.setNumberOfPayments(customer.getNumberOfPayments() + 1); //Adds to their counter
+		}
 	}
 
 	@Override
 	public void option5(Customer customer) {
-		int i = 0;
-		System.out.println("What Car Would You Like To VIEW PAYMENTS On?");
-		for(Car car : customer.getOwnedCars()) {
-			System.out.println("Car ID = " + i);
-			System.out.println(car.toString());
-			i++;
+		if(customer.getOwnedCars().size() ==0) {
+			System.out.println("You Don't Own Any Cars Yet!");
 		}
-		
-		int carIndex = UserInputUtility.validationPrompt(0, customer.getOwnedCars().size()-1);
-		
-		customerManager.viewRemainingPayments(customer, customer.getOwnedCars().get(carIndex));
-		
+		else {
+			int i = 0;
+			System.out.println("What Car Would You Like To VIEW PAYMENTS On?");
+			for(Car car : customer.getOwnedCars()) {
+				System.out.println("Car ID = " + i);
+				System.out.println(car.toString());
+				i++;
+			}
+			
+			int carIndex = UserInputUtility.validationPrompt(0, customer.getOwnedCars().size()-1);
+			
+			customerManager.viewRemainingPayments(customer, customer.getOwnedCars().get(carIndex));
+		}
 	}
 }

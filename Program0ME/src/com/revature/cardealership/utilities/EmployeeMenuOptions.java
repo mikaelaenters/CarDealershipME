@@ -24,7 +24,7 @@ public class EmployeeMenuOptions implements EmployeeMenuManager {
 		int i = 0;
 		List<Car> tempList = new ArrayList<Car>();
 			
-			if(inventory.getCurrentCarOffers().isEmpty()) {
+			if(inventory.getCurrentCarOffers().size() == 0) {
 				System.out.println("Sorry There Are NO CURRENT OFFERS To Accept!");
 			}
 			else {
@@ -58,7 +58,7 @@ public class EmployeeMenuOptions implements EmployeeMenuManager {
 		
 		int i = 0;
 		List<Car> tempList = new ArrayList<Car>();
-			if(inventory.getCurrentCarOffers() == null) {
+			if(inventory.getCurrentCarOffers().size() == 0) {
 				System.out.println("Sorry There Are NO CURRENT OFFERS To Reject!");
 			}
 			else {

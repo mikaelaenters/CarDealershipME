@@ -27,7 +27,7 @@ public class CustomerScreen implements CScreen {
 			
 			switch(loginOption) {
 				case 1: System.out.println("-------CUSTOMER LOGIN-------\nPlease Enter "
-						+ " Your Username: ");
+						+ "Your Username: ");
 						userName = UserInputUtility.getAccountInfo();
 						System.out.println("Please Enter Your Password: ");
 						password = UserInputUtility.getAccountInfo();
@@ -40,7 +40,7 @@ public class CustomerScreen implements CScreen {
 						break;
 						
 				case 2:System.out.println("-------CREATE A CUSTOMER ACCOUNT-------\nPlease Enter "
-						+ " Your Username: ");
+						+ "Your Username: ");
 						userName = UserInputUtility.getAccountInfo();
 						System.out.println("Please Enter Your Password: ");
 						password = UserInputUtility.getAccountInfo();
@@ -70,7 +70,8 @@ public class CustomerScreen implements CScreen {
 			break;
 		case 4: cOptions.option4(customer, inventory);
 			break;
-		case 5: cOptions.option5(customer); break;
+		case 5: cOptions.option5(customer);
+			break;
 		}
 		
 		

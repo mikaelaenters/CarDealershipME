@@ -47,7 +47,7 @@ public class CustomerManagerImpl implements CustomerManager {
 
 	@Override
 	public void viewOwnedCars(Customer customer) {
-		if(customer.getOwnedCars() == null) {
+		if(customer.getOwnedCars().size() == 0) {
 			System.out.println("You Don't Own Any Cars!");
 		}
 		else {
@@ -59,10 +59,14 @@ public class CustomerManagerImpl implements CustomerManager {
 
 	@Override
 	public void viewRemainingPayments(Customer customer, Car car) {
-		System.out.println("You Have Made " + customer.getNumberOfPayments() + " Payment(s) on " + car.toString() 
-		+ " [monthlyPayment= " + customer.getMonthlyPayment() + ", "
-		+ "totalAmountOwed= " + customer.getTotalCarPrice() +"]");
-
+		if(customer.getNumberOfPayments() == 0) {
+			System.out.println("You Haven't Made Any Payments Yet!");
+		}
+		else {
+			System.out.println("You Have Made " + customer.getNumberOfPayments() + " Payment(s) on " + car.toString() 
+			+ " [monthlyPayment= " + customer.getMonthlyPayment() + ", "
+			+ "totalAmountOwed= " + customer.getTotalCarPrice() +"]");
+		}
 	}
 
 	@Override
@@ -82,10 +86,8 @@ public class CustomerManagerImpl implements CustomerManager {
 	public void makeAMonthlyPayment(Customer customer, int carIndex, Inventory inventory) {
 		customer.setTotalCarPrice(customer.getTotalCarPrice()-customer.getMonthlyPayment());
 		System.out.println("[monthlyPayment= " + customer.getMonthlyPayment() + ", totalAmountOwed= " + customer.getTotalCarPrice() +"]");
-		inventory.getAllPayments().add(new Payment(customer, customer.getMonthlyPayment(), customer.getOwnedCars().get(carIndex)));
+		inventory.getAllPayments().add(new Payment(customer, customer.getMonthlyPayment(), customer.getOwnedCars().get(carIndex)));	
 	}
-	
-	
 	
 
 

@@ -27,7 +27,7 @@ public class EmployeeScreen implements EScreen {
 				
 				switch(loginOption) {
 					case 1: System.out.println("-------EMPLOYEE LOGIN-------\nPlease Enter "
-							+ " Your Username: ");
+							+ "Your Username: ");
 							userName = UserInputUtility.getAccountInfo();
 							System.out.println("Please Enter Your Password: ");
 							password = UserInputUtility.getAccountInfo();
@@ -40,7 +40,7 @@ public class EmployeeScreen implements EScreen {
 							break;
 							
 					case 2:System.out.println("-------CREATE A EMPLOYEE ACCOUNT-------\nPlease Enter "
-							+ " Your Username: ");
+							+ "Your Username: ");
 							userName = UserInputUtility.getAccountInfo();
 							System.out.println("Please Enter Your Password: ");
 							password = UserInputUtility.getAccountInfo();

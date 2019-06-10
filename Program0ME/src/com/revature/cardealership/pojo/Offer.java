@@ -8,7 +8,7 @@ public class Offer implements Serializable{
 	private Customer customer;
 	private Car car;
 	private double offerAmount;
-	private int offerId;
+	//private int offerId;
 	private boolean accepted;
 	private boolean rejected;
 	private boolean pending;
@@ -64,16 +64,11 @@ public class Offer implements Serializable{
 		return this.pending;
 	}
 	
-	public int getOfferId() {
-		return this.offerId;
-	}
-	public void setOfferId(int offerId) {
-		this.offerId = offerId;
-	}
+
 
 	@Override
 	public String toString() {
-		return "Offer [customer=" + customer + ", car=" + car + ", offerAmount=" + offerAmount + ", offerId=" + offerId
+		return "Offer [car=" + car + ", offerAmount=" + offerAmount + ", pending=" + pending
 				+ ", accepted=" + accepted + "]";
 	}
 	
