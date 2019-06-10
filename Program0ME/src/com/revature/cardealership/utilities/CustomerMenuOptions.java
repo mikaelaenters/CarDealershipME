@@ -44,8 +44,8 @@ public class CustomerMenuOptions implements CustomerMenuManager {
 					carLot.getCarLot().get(index).addCarOfferToList(newOffer);
 					inventory.getCurrentCarOffers().put(carLot.getCarLot().get(index), carLot.getCarLot().get(index).getCarOffers());
 		
-					System.out.println(newOffer.toString());
-					
+					//System.out.println(newOffer.toString());
+					LoggingUtility.trace(newOffer.toString());
 			}
 	}
 	
@@ -71,6 +71,7 @@ public class CustomerMenuOptions implements CustomerMenuManager {
 			int carIndex = UserInputUtility.validationPrompt(0, customer.getOwnedCars().size()-1);
 			customerManager.makeAMonthlyPayment(customer, carIndex, inventory);
 			customer.setNumberOfPayments(customer.getNumberOfPayments() + 1); //Adds to their counter
+			LoggingUtility.trace("You Made A Payment");
 		}
 	}
 

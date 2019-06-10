@@ -35,8 +35,12 @@ public class EmployeeScreen implements EScreen {
 							employeeIndex = validLogin.userValidation(inventory, 2, userName, password);
 							
 							if(employeeIndex == -1) {
-								System.out.println("Incorrect Username Or Password. Try Again Or Create An Accout.");
+								//System.out.println("Incorrect Username Or Password. Try Again Or Create An Account.");
+								LoggingUtility.warn("Incorrect Username Or Password. Try Again Or Create An Account.");
 							}
+							else {
+								LoggingUtility.trace("Successful Login");
+							}	
 							break;
 							
 					case 2:System.out.println("-------CREATE A EMPLOYEE ACCOUNT-------\nPlease Enter "
@@ -44,8 +48,8 @@ public class EmployeeScreen implements EScreen {
 							userName = UserInputUtility.getAccountInfo();
 							System.out.println("Please Enter Your Password: ");
 							password = UserInputUtility.getAccountInfo();
-					
-							 return eManager.createAnAccount(userName, password, inventory);
+							LoggingUtility.trace("Your Account Has Been Created.");
+							return eManager.createAnAccount(userName, password, inventory);
 									
 				}
 

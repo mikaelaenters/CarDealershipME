@@ -35,7 +35,11 @@ public class CustomerScreen implements CScreen {
 						customerIndex = validLogin.userValidation(inventory, 1, userName, password);
 						
 						if(customerIndex == -1) {
-							System.out.println("Incorrect Username Or Password. Try Again Or Create An Accout.");
+							//System.out.println("Incorrect Username Or Password. Try Again Or Create An Account.");
+							LoggingUtility.warn("Incorrect Username Or Password. Try Again Or Create An Account.");
+						}
+						else {
+							LoggingUtility.trace("Successful Login");
 						}
 						break;
 						
@@ -44,7 +48,7 @@ public class CustomerScreen implements CScreen {
 						userName = UserInputUtility.getAccountInfo();
 						System.out.println("Please Enter Your Password: ");
 						password = UserInputUtility.getAccountInfo();
-				
+						LoggingUtility.trace("Your Account Has Been Created.");
 						return cManager.createAnAccount(userName, password, inventory);	
 			}
 

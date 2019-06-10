@@ -1,9 +1,6 @@
 package com.revature.cardealership.utilities;
 
-import com.revature.cardealership.managerimpl.CustomerManagerImpl;
-import com.revature.cardealership.managerinterface.CustomerManager;
 import com.revature.cardealership.pojo.Inventory;
-import com.revature.cardealership.pojo.User;
 
 public class LoginValidationImpl implements LoginValidation{
 	

@@ -25,7 +25,8 @@ public class EmployeeMenuOptions implements EmployeeMenuManager {
 		List<Car> tempList = new ArrayList<Car>();
 			
 			if(inventory.getCurrentCarOffers().size() == 0) {
-				System.out.println("Sorry There Are NO CURRENT OFFERS To Accept!");
+				//System.out.println("Sorry There Are NO CURRENT OFFERS To Accept!");
+				LoggingUtility.trace("Sorry There Are NO CURRENT OFFERS To Accept!");
 			}
 			else {
 				System.out.println("What CAR would you like to ACCEPT an offer on?");
@@ -37,6 +38,7 @@ public class EmployeeMenuOptions implements EmployeeMenuManager {
 				}
 				int index = UserInputUtility.validationPrompt(0, tempList.size() - 1);
 				Offer acceptedOffer = employeeManager.acceptOffer(tempList.get(index), inventory);
+				LoggingUtility.trace("Offer Has Been Accepted.");
 				
 				Customer customer = acceptedOffer.getCustomer();
 				Car currentCar = tempList.get(index);
@@ -49,6 +51,7 @@ public class EmployeeMenuOptions implements EmployeeMenuManager {
 				
 				//TODO Remove off lot. 
 				inventory.getCarLot().removeCarFromLot(currentCar);
+				LoggingUtility.trace("Car Has Been Removed From Car Lot.");
 			}
 	}
 		
@@ -59,7 +62,8 @@ public class EmployeeMenuOptions implements EmployeeMenuManager {
 		int i = 0;
 		List<Car> tempList = new ArrayList<Car>();
 			if(inventory.getCurrentCarOffers().size() == 0) {
-				System.out.println("Sorry There Are NO CURRENT OFFERS To Reject!");
+				//System.out.println("Sorry There Are NO CURRENT OFFERS To Reject!");
+				LoggingUtility.trace("Sorry There Are NO CURRENT OFFERS To Reject!");
 			}
 			else {
 				System.out.println("What CAR would you like to REJECT an offer on?");
@@ -71,7 +75,9 @@ public class EmployeeMenuOptions implements EmployeeMenuManager {
 				}
 					
 				int index = UserInputUtility.validationPrompt(0, tempList.size() - 1);
-				System.out.println(employeeManager.rejectOffer(tempList.get(index)).toString());
+				Offer rejectedOffer = employeeManager.rejectOffer(tempList.get(index));
+				LoggingUtility.trace("Offer Has Been Rejected.");
+				System.out.println(rejectedOffer.toString());
 			}
 	}
 	
@@ -79,7 +85,7 @@ public class EmployeeMenuOptions implements EmployeeMenuManager {
 		String carMake = UserInputUtility.makeAndModelPrompt("Make");
 		String carModel = UserInputUtility.makeAndModelPrompt("Model");
 		employeeManager.addCar(carLot, carMake, carModel);
-		
+		LoggingUtility.trace("Car Has Been Added to Car Lot.");
 	}
 	
 	public void option4(CarLot carLot) {
@@ -98,6 +104,7 @@ public class EmployeeMenuOptions implements EmployeeMenuManager {
 				
 					int index = UserInputUtility.validationPrompt(0, carLot.getCarLot().size()-1);
 					employeeManager.removeCar(carLot, carLot.getCarLot().get(index));
+					LoggingUtility.trace("Car Has Been Removed From Car Lot.");
 				}
 			
 		
@@ -106,10 +113,14 @@ public class EmployeeMenuOptions implements EmployeeMenuManager {
 
 	@Override
 	public void option5(Inventory inventory) {
-		for(Payment payment : inventory.getAllPayments()) {
-			System.out.println(payment.toString());
+		if(inventory.getAllPayments().size() == 0) {
+			System.out.println("No Payments Have Been Made!");
 		}
-		
+		else {
+			for(Payment payment : inventory.getAllPayments()) {
+				System.out.println(payment.toString());
+			}
+		}
 	}
 
 }
