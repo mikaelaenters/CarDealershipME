@@ -15,7 +15,7 @@ public class Inventory implements Serializable {
 	//Fields;
 	private List<Employee> employeeList;
 	private List<Customer> customerList;
-	private Map<Car,List<Offer>> currentCarOffers;
+	private List<Car> currentCarsWithOffers;
 	private CarLot carLot;
 	private List<Payment> allPayments;
 
@@ -24,24 +24,20 @@ public class Inventory implements Serializable {
 	public Inventory() {
 		employeeList = new ArrayList<Employee>();
 		customerList = new ArrayList<Customer>();
-		currentCarOffers = new HashMap<Car, List<Offer>>();
+		currentCarsWithOffers = new ArrayList<Car>();
 		carLot = new CarLot();
 		allPayments = new ArrayList<Payment>();
 	}
 	
-	@Override
-	public String toString() {
-		return "Inventory [employeeList=" + employeeList + ", customerList=" + customerList + ", currentCarOffers="
-				+ currentCarOffers + ", carLot=" + carLot + "]";
-	}
+
 
 	//Getters &Setters;
-	public Map<Car, List<Offer>> getCurrentCarOffers() {
-		return currentCarOffers;
+	public List<Car> getCurrentCarsWithOffers() {
+		return currentCarsWithOffers;
 	}
 
-	public void setCurrentCarOffers(Map<Car, List<Offer>> currentCarOffers) {
-		this.currentCarOffers = currentCarOffers;
+	public void setCurrentCarsWithOffers(List<Car> currentCarsWithOffers) {
+		this.currentCarsWithOffers = currentCarsWithOffers;
 	}
 
 	public void setEmployeeList(List<Employee> employeeList) {

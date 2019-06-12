@@ -27,20 +27,25 @@ public class CustomerManagerImpl implements CustomerManager {
 			do {
 				offerAmount = UserInputUtility.offerAmount();
 				validOfferAmount = true;
-				
-					for(int i = 0; i < inventory.getCurrentCarOffers().size(); i++) {
-						if(inventory.getCurrentCarOffers().get(car).get(i).getOfferAmount() >= offerAmount) {
-							System.out.println("There is currently a higher offer.\n"
-									+ "Please Create An Offer Higher Than $"
-									+ inventory.getCurrentCarOffers().get(car).get(i).getOfferAmount());
-							validOfferAmount = false;
-							break;
-						}
+			
+				for(int i = 0; i < car.getCarOffers().size(); i++) {
+					if(car.getCarOffers().get(i).getOfferAmount() >= offerAmount) {
+						System.out.println("There is currently a higher offer.\n"
+								+ "Please Create An Offer Higher Than $"
+								+ car.getCarOffers().get(i).getOfferAmount());
+						validOfferAmount = false;
+						break;
+						
 					}
+				}
+				
 			}while(!validOfferAmount);
 			
-			Offer newOffer = new Offer(customer, car, offerAmount);
-			return newOffer;
+			//Add Car to CarOffers List
+			inventory.getCurrentCarsWithOffers().add(car);
+			
+			return new Offer(customer, car, offerAmount);
+		
 			
 		
 	}
@@ -52,7 +57,7 @@ public class CustomerManagerImpl implements CustomerManager {
 		}
 		else {
 			for(Car car : customer.getOwnedCars()) {
-				System.out.println(car.toString() + " [monthlyPayment= " + customer.getMonthlyPayment() + ", totalAmountOwed= " + customer.getTotalCarPrice() +"]");
+				System.out.println(car.toString() + " [monthlyPayment= " + car.getMonthlyPayment() + ", totalAmountOwed= " + car.getTotalCarPrice() +"]");
 			}
 		}
 	}
@@ -64,8 +69,8 @@ public class CustomerManagerImpl implements CustomerManager {
 		}
 		else {
 			System.out.println("You Have Made " + customer.getNumberOfPayments() + " Payment(s) on " + car.toString() 
-			+ " [monthlyPayment= " + customer.getMonthlyPayment() + ", "
-			+ "totalAmountOwed= " + customer.getTotalCarPrice() +"]");
+			+ " [monthlyPayment= " + car.getMonthlyPayment() + ", "
+			+ "totalAmountOwed= " + car.getTotalCarPrice() +"]");
 		}
 	}
 
@@ -84,9 +89,10 @@ public class CustomerManagerImpl implements CustomerManager {
 
 	@Override
 	public void makeAMonthlyPayment(Customer customer, int carIndex, Inventory inventory) {
-		customer.setTotalCarPrice(customer.getTotalCarPrice()-customer.getMonthlyPayment());
-		System.out.println("[monthlyPayment= " + customer.getMonthlyPayment() + ", totalAmountOwed= " + customer.getTotalCarPrice() +"]");
-		inventory.getAllPayments().add(new Payment(customer, customer.getMonthlyPayment(), customer.getOwnedCars().get(carIndex)));	
+		//customer.setTotalCarPrice(customer.getTotalCarPrice()-customer.getMonthlyPayment());
+		customer.getOwnedCars().get(carIndex).setTotalCarPrice(customer.getOwnedCars().get(carIndex).getTotalCarPrice() -customer.getOwnedCars().get(carIndex).getMonthlyPayment());
+		System.out.println("[monthlyPayment= " + customer.getOwnedCars().get(carIndex).getMonthlyPayment() + ", totalAmountOwed= " + customer.getOwnedCars().get(carIndex).getTotalCarPrice() +"]");
+		inventory.getAllPayments().add(new Payment(customer, customer.getOwnedCars().get(carIndex).getMonthlyPayment(), customer.getOwnedCars().get(carIndex)));	
 	}
 	
 

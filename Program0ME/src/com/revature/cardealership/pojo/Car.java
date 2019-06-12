@@ -12,7 +12,8 @@ public class Car implements Serializable {
 	private int currentCarIndex = 0;
 	private int carIndex;
 	//private boolean owned;
-	//private double monthlyPayment;
+	private double monthlyPayment;
+	private double totalCarPrice;
 	
 	
 	//Constructors;
@@ -24,6 +25,22 @@ public class Car implements Serializable {
 	}
 	
 	//Getters &setters;
+	public double getMonthlyPayment() {
+		return monthlyPayment;
+	}
+
+	public void setMonthlyPayment(double monthlyPayment) {
+		this.monthlyPayment = monthlyPayment;
+	}
+
+	public double getTotalCarPrice() {
+		return this.totalCarPrice;
+	}
+	
+	public void setTotalCarPrice(double totalCarPrice) {
+		this.totalCarPrice = totalCarPrice;
+	}
+	
 	public int getNextIndex() {
 		return currentCarIndex + 1;
 	}

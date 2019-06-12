@@ -4,7 +4,7 @@ import com.revature.cardealership.pojo.Inventory;
 
 public class WelcomeScreen implements PromptScreen {
 
-	public static final String WELCOME_MESSAGE = "Welcome to Mikaela's Used Cars!";
+	public static final String WELCOME_MESSAGE = "Welcome to Mikaela's Used Cars!\n";
 	@Override
 	public void display(Inventory inventory) {
 		System.out.println(WELCOME_MESSAGE);

@@ -7,7 +7,7 @@ import com.revature.cardealership.pojo.Inventory;
 import com.revature.cardealership.pojo.Offer;
 
 public interface EmployeeManager {
-	public Offer acceptOffer(Car car, Inventory inventory);
+	public Offer acceptOffer(int index, Inventory inventory);
 	public Offer rejectOffer(Car car);
 	public void addCar(CarLot carLot, String make, String model);
 	public void removeCar(CarLot carLot, Car car);

@@ -22,63 +22,70 @@ public class EmployeeMenuOptions implements EmployeeMenuManager {
 	public void option1(Inventory inventory) {
 		
 		int i = 0;
-		List<Car> tempList = new ArrayList<Car>();
-			
-			if(inventory.getCurrentCarOffers().size() == 0) {
-				//System.out.println("Sorry There Are NO CURRENT OFFERS To Accept!");
-				LoggingUtility.trace("Sorry There Are NO CURRENT OFFERS To Accept!");
-			}
+
+		if(inventory.getCurrentCarsWithOffers().size() == 0) {
+			System.out.println("Sorry There Are NO CURRENT OFFERS To Accept!");
+		}
+		
 			else {
 				System.out.println("What CAR would you like to ACCEPT an offer on?");
-				for(Car car : inventory.getCurrentCarOffers().keySet()) {
-					tempList.add(car);
+				for(Car car : inventory.getCurrentCarsWithOffers()) {
 					System.out.println("Car ID = " + i);
 					System.out.println(car.toString());
 					i++;
 				}
-				int index = UserInputUtility.validationPrompt(0, tempList.size() - 1);
-				Offer acceptedOffer = employeeManager.acceptOffer(tempList.get(index), inventory);
+				
+			
+				int index = UserInputUtility.validationPrompt(0, inventory.getCurrentCarsWithOffers().size() - 1);
+				Offer acceptedOffer = employeeManager.acceptOffer(index, inventory);
 				LoggingUtility.trace("Offer Has Been Accepted.");
 				
 				Customer customer = acceptedOffer.getCustomer();
-				Car currentCar = tempList.get(index);
+				Car currentCar = inventory.getCurrentCarsWithOffers().get(index);
 				
 				inventory.getCustomerList().get(customer.getCustomerIndex()-1).getOwnedCars().add(currentCar);
 				
-				customer.setTotalCarPrice(acceptedOffer.getOfferAmount());  //Set totalCarPrice
-				customer.setMonthlyPayment(customerManager.calculateMonthlyPayment(acceptedOffer.getOfferAmount())); //Sets Customer Monthly Payment
-				System.out.println(employeeManager.acceptOffer(tempList.get(index),inventory).toString());
+		
+				currentCar.setTotalCarPrice(acceptedOffer.getOfferAmount()); //Set totalCarPrice
+				
+				currentCar.setMonthlyPayment(customerManager.calculateMonthlyPayment(acceptedOffer.getOfferAmount())); //Sets Customer Monthly Payment
+				
 				
 				//TODO Remove off lot. 
+				removeOffers(index, inventory);
 				inventory.getCarLot().removeCarFromLot(currentCar);
+				
 				LoggingUtility.trace("Car Has Been Removed From Car Lot.");
 			}
 	}
-		
+	public static void removeOffers(int index, Inventory inventory) {
+		inventory.getCurrentCarsWithOffers().remove(index);
+	}
 
 	public void option2(Inventory inventory) {
-	 
+	 //TODO 
+	//IMPLEMENT
 		
-		int i = 0;
-		List<Car> tempList = new ArrayList<Car>();
-			if(inventory.getCurrentCarOffers().size() == 0) {
-				//System.out.println("Sorry There Are NO CURRENT OFFERS To Reject!");
-				LoggingUtility.trace("Sorry There Are NO CURRENT OFFERS To Reject!");
-			}
-			else {
-				System.out.println("What CAR would you like to REJECT an offer on?");
-				for(Car car : inventory.getCurrentCarOffers().keySet()) {
-					tempList.add(car);
-					System.out.println("Car ID = " + i);
-					System.out.println(car.toString());
-					i++;
-				}
-					
-				int index = UserInputUtility.validationPrompt(0, tempList.size() - 1);
-				Offer rejectedOffer = employeeManager.rejectOffer(tempList.get(index));
-				LoggingUtility.trace("Offer Has Been Rejected.");
-				System.out.println(rejectedOffer.toString());
-			}
+//		int i = 0;
+//		List<Car> tempList = new ArrayList<Car>();
+//			if(inventory.getCurrentCarOffers().size() == 0) {
+//				System.out.println("Sorry There Are NO CURRENT OFFERS To Reject!");
+//				LoggingUtility.trace("Sorry There Are NO CURRENT OFFERS To Reject!");
+//			}
+//			else {
+//				System.out.println("What CAR would you like to REJECT an offer on?");
+//				for(Car car : inventory.getCurrentCarOffers().keySet()) {
+//					tempList.add(car);
+//					System.out.println("Car ID = " + i);
+//					System.out.println(car.toString());
+//					i++;
+//				}
+//					
+//				int index = UserInputUtility.validationPrompt(0, tempList.size() - 1);
+//				Offer rejectedOffer = employeeManager.rejectOffer(tempList.get(index));
+//				LoggingUtility.trace("Offer Has Been Rejected.");
+//				System.out.println(rejectedOffer.toString());
+//			}
 	}
 	
 	public void option3(CarLot carLot) {

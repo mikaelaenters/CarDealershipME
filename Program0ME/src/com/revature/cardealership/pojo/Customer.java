@@ -9,9 +9,8 @@ public class Customer extends User implements Serializable{
 	private int currentIndex = 0;
 	private int customerIndex;
 	private List<Car> ownedCars = new ArrayList<Car>();
-	private double totalCarPrice;   //This will get set when they get a car
-	private double monthlyPayment;  //Must Calculate this field
 	private int numberOfPayments = 0;
+	
 	//Constructors;
 	public Customer(String userId, String password) {
 		this.userId = userId;
@@ -32,13 +31,7 @@ public class Customer extends User implements Serializable{
 		this.ownedCars = ownedCars;
 	}
 	
-	public double getTotalCarPrice() {
-		return this.totalCarPrice;
-	}
-	
-	public void setTotalCarPrice(double totalCarPrice) {
-		this.totalCarPrice = totalCarPrice;
-	}
+
 	
 	public int getNextIndex() {
 		return currentIndex + 1;
@@ -48,13 +41,6 @@ public class Customer extends User implements Serializable{
 		return this.customerIndex;
 	}
 
-	public double getMonthlyPayment() {
-		return monthlyPayment;
-	}
-
-	public void setMonthlyPayment(double monthlyPayment) {
-		this.monthlyPayment = monthlyPayment;
-	}
 
 	public int getNumberOfPayments() {
 		return numberOfPayments;

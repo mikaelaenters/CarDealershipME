@@ -40,11 +40,10 @@ public class CustomerMenuOptions implements CustomerMenuManager {
 					
 					Offer newOffer =customerManager.createAnOffer(customer, carLot.getCarLot().get(index), inventory);
 					
-					//carLot.getCarLot().get(index).getCarOffers().add(newOffer);
-					carLot.getCarLot().get(index).addCarOfferToList(newOffer);
-					inventory.getCurrentCarOffers().put(carLot.getCarLot().get(index), carLot.getCarLot().get(index).getCarOffers());
-		
-					//System.out.println(newOffer.toString());
+					carLot.getCarLot().get(index).getCarOffers().add(newOffer);
+					//carLot.getCarLot().get(index).addCarOfferToList(newOffer);
+					//inventory.getCurrentCarOffers().put(carLot.getCarLot().get(index), carLot.getCarLot().get(index).getCarOffers());
+					System.out.println(newOffer.toString());
 					LoggingUtility.trace(newOffer.toString());
 			}
 	}

@@ -13,3 +13,367 @@
 2019-06-10 14:05:30 TRACE root:17 - You Made A Payment
 2019-06-10 14:06:03 TRACE root:17 - You Made A Payment
 2019-06-10 14:06:30 TRACE root:17 - Logging Out...
+2019-06-10 14:37:41 TRACE root:17 - Successful Login
+2019-06-10 14:37:41 TRACE root:17 - Thank you for Logging In!
+
+2019-06-10 14:38:07 TRACE root:17 - Offer [car=[carMake=KIA, carModel=Sportage], offerAmount=70000.0, pending=true, accepted=false]
+2019-06-10 14:38:23 TRACE root:17 - Logging Out...
+2019-06-11 08:50:46 TRACE root:17 - Your Account Has Been Created.
+2019-06-11 08:50:46 TRACE root:17 - Thank you for Logging In!
+
+2019-06-11 08:54:31 TRACE root:17 - Your Account Has Been Created.
+2019-06-11 08:54:31 TRACE root:17 - Thank you for Logging In!
+
+2019-06-11 08:57:32 TRACE root:17 - Your Account Has Been Created.
+2019-06-11 08:57:32 TRACE root:17 - Thank you for Logging In!
+
+2019-06-11 08:57:41 TRACE root:17 - Car Has Been Added to Car Lot.
+2019-06-11 08:57:53 TRACE root:17 - Car Has Been Added to Car Lot.
+2019-06-11 08:58:52 TRACE root:17 - Car Has Been Added to Car Lot.
+2019-06-11 08:59:03 TRACE root:17 - Logging Out...
+2019-06-11 08:59:26 TRACE root:17 - Your Account Has Been Created.
+2019-06-11 08:59:26 TRACE root:17 - Thank you for Logging In!
+
+2019-06-11 08:59:45 TRACE root:17 - Offer [car=[carMake=Tesla, carModel=NEON], offerAmount=50000.0, pending=true, accepted=false]
+2019-06-11 09:01:05 TRACE root:17 - Your Account Has Been Created.
+2019-06-11 09:01:05 TRACE root:17 - Thank you for Logging In!
+
+2019-06-11 09:01:25 TRACE root:17 - Offer [car=[carMake=Tesla, carModel=NEON], offerAmount=45000.0, pending=true, accepted=false]
+2019-06-11 09:01:31 TRACE root:17 - Logging Out...
+2019-06-11 09:01:41 TRACE root:17 - Successful Login
+2019-06-11 09:01:41 TRACE root:17 - Thank you for Logging In!
+
+2019-06-11 09:01:48 TRACE root:17 - Offer Has Been Accepted.
+2019-06-11 09:01:48 TRACE root:17 - Car Has Been Removed From Car Lot.
+2019-06-11 09:02:08 TRACE root:17 - Car Has Been Added to Car Lot.
+2019-06-11 09:03:08 TRACE root:17 - Car Has Been Added to Car Lot.
+2019-06-11 09:03:11 TRACE root:17 - Logging Out...
+2019-06-11 09:03:29 TRACE root:17 - Your Account Has Been Created.
+2019-06-11 09:03:29 TRACE root:17 - Thank you for Logging In!
+
+2019-06-11 09:03:42 TRACE root:17 - Offer [car=[carMake=Ford, carModel=Freestar], offerAmount=50.0, pending=true, accepted=false]
+2019-06-11 09:03:48 TRACE root:17 - Logging Out...
+2019-06-11 09:03:59 WARN  root:41 - Incorrect Username Or Password. Try Again Or Create An Account.
+2019-06-11 09:04:07 TRACE root:17 - Successful Login
+2019-06-11 09:04:07 TRACE root:17 - Thank you for Logging In!
+
+2019-06-11 09:04:45 TRACE root:17 - Logging Out...
+2019-06-11 09:36:54 TRACE root:17 - Successful Login
+2019-06-11 09:36:54 TRACE root:17 - Thank you for Logging In!
+
+2019-06-11 09:43:27 TRACE root:17 - Your Account Has Been Created.
+2019-06-11 09:43:27 TRACE root:17 - Thank you for Logging In!
+
+2019-06-11 09:43:33 TRACE root:17 - Car Has Been Added to Car Lot.
+2019-06-11 09:43:38 TRACE root:17 - Car Has Been Added to Car Lot.
+2019-06-11 09:43:44 TRACE root:17 - Car Has Been Added to Car Lot.
+2019-06-11 09:43:52 TRACE root:17 - Car Has Been Added to Car Lot.
+2019-06-11 09:44:54 TRACE root:17 - Car Has Been Added to Car Lot.
+2019-06-11 09:44:59 TRACE root:17 - Car Has Been Added to Car Lot.
+2019-06-11 09:45:08 TRACE root:17 - Logging Out...
+2019-06-11 09:45:50 WARN  root:41 - Incorrect Username Or Password. Try Again Or Create An Account.
+2019-06-11 09:45:58 TRACE root:17 - Your Account Has Been Created.
+2019-06-11 09:45:58 TRACE root:17 - Thank you for Logging In!
+
+2019-06-11 09:46:11 TRACE root:17 - Offer [car=[carMake=Nissan, carModel=Maxima], offerAmount=50000.0, pending=true, accepted=false]
+2019-06-11 09:46:44 TRACE root:17 - Logging Out...
+2019-06-11 10:31:19 TRACE root:17 - Successful Login
+2019-06-11 10:31:19 TRACE root:17 - Thank you for Logging In!
+
+2019-06-11 10:31:28 TRACE root:17 - Offer Has Been Accepted.
+2019-06-11 10:31:28 TRACE root:17 - Car Has Been Removed From Car Lot.
+2019-06-11 10:33:39 TRACE root:17 - Car Has Been Added to Car Lot.
+2019-06-11 10:33:58 TRACE root:17 - Car Has Been Added to Car Lot.
+2019-06-11 10:34:07 TRACE root:17 - Car Has Been Added to Car Lot.
+2019-06-11 10:34:14 TRACE root:17 - Car Has Been Removed From Car Lot.
+2019-06-11 10:34:37 TRACE root:17 - Car Has Been Added to Car Lot.
+2019-06-11 10:35:01 TRACE root:17 - Car Has Been Added to Car Lot.
+2019-06-11 10:36:25 TRACE root:17 - Logging Out...
+2019-06-11 10:36:41 TRACE root:17 - Your Account Has Been Created.
+2019-06-11 10:36:41 TRACE root:17 - Thank you for Logging In!
+
+2019-06-11 10:37:04 TRACE root:17 - Offer [car=[carMake=BMW, carModel=Black], offerAmount=35000.0, pending=true, accepted=false]
+2019-06-11 10:37:33 TRACE root:17 - Logging Out...
+2019-06-11 10:37:50 TRACE root:17 - Your Account Has Been Created.
+2019-06-11 10:37:50 TRACE root:17 - Thank you for Logging In!
+
+2019-06-11 10:39:08 TRACE root:17 - Your Account Has Been Created.
+2019-06-11 10:39:08 TRACE root:17 - Thank you for Logging In!
+
+2019-06-11 10:43:05 TRACE root:17 - Successful Login
+2019-06-11 10:43:05 TRACE root:17 - Thank you for Logging In!
+
+2019-06-11 10:45:32 TRACE root:17 - Your Account Has Been Created.
+2019-06-11 10:45:32 TRACE root:17 - Thank you for Logging In!
+
+2019-06-11 10:45:46 TRACE root:17 - Car Has Been Added to Car Lot.
+2019-06-11 10:45:55 TRACE root:17 - Car Has Been Added to Car Lot.
+2019-06-11 10:46:25 TRACE root:17 - Car Has Been Added to Car Lot.
+2019-06-11 10:46:33 TRACE root:17 - Car Has Been Added to Car Lot.
+2019-06-11 10:46:37 TRACE root:17 - Logging Out...
+2019-06-11 10:46:48 TRACE root:17 - Successful Login
+2019-06-11 10:46:48 TRACE root:17 - Thank you for Logging In!
+
+2019-06-11 10:46:51 TRACE root:17 - Sorry There Are NO CURRENT OFFERS To Accept!
+2019-06-11 10:47:11 TRACE root:17 - Logging Out...
+2019-06-11 10:47:36 TRACE root:17 - Your Account Has Been Created.
+2019-06-11 10:47:36 TRACE root:17 - Thank you for Logging In!
+
+2019-06-11 10:48:26 WARN  root:41 - Incorrect Username Or Password. Try Again Or Create An Account.
+2019-06-11 10:48:40 TRACE root:17 - Your Account Has Been Created.
+2019-06-11 10:48:40 TRACE root:17 - Thank you for Logging In!
+
+2019-06-11 10:48:52 TRACE root:17 - Offer [car=[carMake=Honda, carModel=Civic], offerAmount=30500.0, pending=true, accepted=false]
+2019-06-11 10:49:19 TRACE root:17 - Logging Out...
+2019-06-11 10:49:29 TRACE root:17 - Successful Login
+2019-06-11 10:49:29 TRACE root:17 - Thank you for Logging In!
+
+2019-06-11 10:49:40 TRACE root:17 - Offer [car=[carMake=Honda, carModel=Civic], offerAmount=45000.0, pending=true, accepted=false]
+2019-06-11 10:50:14 TRACE root:17 - Successful Login
+2019-06-11 10:50:14 TRACE root:17 - Thank you for Logging In!
+
+2019-06-11 10:50:25 TRACE root:17 - Offer Has Been Accepted.
+2019-06-11 10:50:25 TRACE root:17 - Car Has Been Removed From Car Lot.
+2019-06-11 10:50:30 TRACE root:17 - Logging Out...
+2019-06-11 10:56:22 TRACE root:17 - Successful Login
+2019-06-11 10:56:22 TRACE root:17 - Thank you for Logging In!
+
+2019-06-11 10:56:47 TRACE root:17 - Offer [car=[carMake=Tesla, carModel=Neon], offerAmount=43000.0, pending=true, accepted=false]
+2019-06-11 10:59:18 TRACE root:17 - Your Account Has Been Created.
+2019-06-11 10:59:18 TRACE root:17 - Thank you for Logging In!
+
+2019-06-11 10:59:29 TRACE root:17 - Offer [car=[carMake=BMW, carModel=Black], offerAmount=45000.0, pending=true, accepted=false]
+2019-06-11 10:59:47 TRACE root:17 - Logging Out...
+2019-06-11 11:00:07 TRACE root:17 - Your Account Has Been Created.
+2019-06-11 11:00:07 TRACE root:17 - Thank you for Logging In!
+
+2019-06-11 11:00:32 TRACE root:17 - Offer [car=[carMake=BMW, carModel=Black], offerAmount=50000.0, pending=true, accepted=false]
+2019-06-11 11:00:46 TRACE root:17 - Logging Out...
+2019-06-11 11:01:00 TRACE root:17 - Successful Login
+2019-06-11 11:01:00 TRACE root:17 - Thank you for Logging In!
+
+2019-06-11 11:01:14 TRACE root:17 - Car Has Been Added to Car Lot.
+2019-06-11 11:01:22 TRACE root:17 - Car Has Been Added to Car Lot.
+2019-06-11 11:01:29 TRACE root:17 - Car Has Been Added to Car Lot.
+2019-06-11 11:02:13 TRACE root:17 - Car Has Been Added to Car Lot.
+2019-06-11 11:02:53 TRACE root:17 - Car Has Been Added to Car Lot.
+2019-06-11 11:03:23 TRACE root:17 - Car Has Been Added to Car Lot.
+2019-06-11 11:06:50 TRACE root:17 - Offer Has Been Accepted.
+2019-06-11 11:06:50 TRACE root:17 - Car Has Been Removed From Car Lot.
+2019-06-11 11:07:10 TRACE root:17 - Logging Out...
+2019-06-11 11:07:24 TRACE root:17 - Successful Login
+2019-06-11 11:07:24 TRACE root:17 - Thank you for Logging In!
+
+2019-06-11 11:07:39 TRACE root:17 - Offer [car=[carMake=Tesla, carModel=Neon], offerAmount=45000.0, pending=true, accepted=false]
+2019-06-11 11:07:46 TRACE root:17 - Logging Out...
+2019-06-11 11:07:58 TRACE root:17 - Successful Login
+2019-06-11 11:07:58 TRACE root:17 - Thank you for Logging In!
+
+2019-06-11 11:08:37 TRACE root:17 - Successful Login
+2019-06-11 11:08:37 TRACE root:17 - Thank you for Logging In!
+
+2019-06-11 11:09:06 TRACE root:17 - You Made A Payment
+2019-06-11 11:09:12 TRACE root:17 - You Made A Payment
+2019-06-11 11:09:15 TRACE root:17 - You Made A Payment
+2019-06-11 11:09:22 TRACE root:17 - You Made A Payment
+2019-06-11 11:09:25 TRACE root:17 - You Made A Payment
+2019-06-11 11:09:27 TRACE root:17 - You Made A Payment
+2019-06-11 11:11:37 TRACE root:17 - Logging Out...
+2019-06-11 11:15:42 TRACE root:17 - Successful Login
+2019-06-11 11:15:42 TRACE root:17 - Thank you for Logging In!
+
+2019-06-11 11:16:34 TRACE root:17 - Offer Has Been Rejected.
+2019-06-11 11:16:57 TRACE root:17 - Offer Has Been Accepted.
+2019-06-11 11:16:57 TRACE root:17 - Car Has Been Removed From Car Lot.
+2019-06-11 11:17:07 TRACE root:17 - Sorry There Are NO CURRENT OFFERS To Accept!
+2019-06-11 11:17:12 TRACE root:17 - Logging Out...
+2019-06-11 11:17:23 TRACE root:17 - Successful Login
+2019-06-11 11:17:23 TRACE root:17 - Thank you for Logging In!
+
+2019-06-11 11:17:51 TRACE root:17 - Offer [car=[carMake=KIA, carModel=Soul], offerAmount=20000.0, pending=true, accepted=false]
+2019-06-11 11:17:58 TRACE root:17 - Logging Out...
+2019-06-11 11:18:21 TRACE root:17 - Successful Login
+2019-06-11 11:18:21 TRACE root:17 - Thank you for Logging In!
+
+2019-06-11 11:18:30 TRACE root:17 - Logging Out...
+2019-06-11 11:18:50 WARN  root:41 - Incorrect Username Or Password. Try Again Or Create An Account.
+2019-06-11 11:18:58 TRACE root:17 - Successful Login
+2019-06-11 11:18:58 TRACE root:17 - Thank you for Logging In!
+
+2019-06-11 11:19:57 TRACE root:17 - You Made A Payment
+2019-06-11 11:20:02 TRACE root:17 - You Made A Payment
+2019-06-11 11:20:06 TRACE root:17 - You Made A Payment
+2019-06-11 11:24:29 TRACE root:17 - Your Account Has Been Created.
+2019-06-11 11:24:29 TRACE root:17 - Thank you for Logging In!
+
+2019-06-11 11:24:50 TRACE root:17 - Car Has Been Added to Car Lot.
+2019-06-11 11:24:55 TRACE root:17 - Car Has Been Added to Car Lot.
+2019-06-11 11:25:00 TRACE root:17 - Car Has Been Added to Car Lot.
+2019-06-11 11:25:41 TRACE root:17 - Car Has Been Added to Car Lot.
+2019-06-11 11:25:47 TRACE root:17 - Car Has Been Added to Car Lot.
+2019-06-11 11:25:53 TRACE root:17 - Car Has Been Added to Car Lot.
+2019-06-11 11:25:58 TRACE root:17 - Car Has Been Added to Car Lot.
+2019-06-11 11:26:09 TRACE root:17 - Car Has Been Added to Car Lot.
+2019-06-11 11:27:10 TRACE root:17 - Logging Out...
+2019-06-11 11:27:43 TRACE root:17 - Your Account Has Been Created.
+2019-06-11 11:27:43 TRACE root:17 - Thank you for Logging In!
+
+2019-06-11 11:29:08 TRACE root:17 - Offer [car=[carMake=Tesla, carModel=Neon], offerAmount=120000.0, pending=true, accepted=false]
+2019-06-11 11:32:09 TRACE root:17 - Logging Out...
+2019-06-11 15:35:35 TRACE root:17 - Successful Login
+2019-06-11 15:35:35 TRACE root:17 - Thank you for Logging In!
+
+2019-06-11 15:35:47 TRACE root:17 - Offer Has Been Accepted.
+2019-06-11 15:35:47 TRACE root:17 - Car Has Been Removed From Car Lot.
+2019-06-11 15:35:57 TRACE root:17 - Logging Out...
+2019-06-11 15:36:07 TRACE root:17 - Successful Login
+2019-06-11 15:36:07 TRACE root:17 - Thank you for Logging In!
+
+2019-06-11 15:36:17 TRACE root:17 - Offer [car=[carMake=Nissan, carModel=Maxima], offerAmount=50000.0, pending=true, accepted=false]
+2019-06-11 15:36:24 TRACE root:17 - Logging Out...
+2019-06-11 15:36:53 TRACE root:17 - Your Account Has Been Created.
+2019-06-11 15:36:53 TRACE root:17 - Thank you for Logging In!
+
+2019-06-11 15:36:59 TRACE root:17 - Car Has Been Added to Car Lot.
+2019-06-11 15:37:04 TRACE root:17 - Car Has Been Added to Car Lot.
+2019-06-11 15:37:13 TRACE root:17 - Car Has Been Added to Car Lot.
+2019-06-11 15:37:28 TRACE root:17 - Car Has Been Added to Car Lot.
+2019-06-11 15:37:35 TRACE root:17 - Car Has Been Added to Car Lot.
+2019-06-11 15:38:33 TRACE root:17 - Car Has Been Added to Car Lot.
+2019-06-11 15:38:57 TRACE root:17 - Car Has Been Added to Car Lot.
+2019-06-11 15:39:02 TRACE root:17 - Car Has Been Added to Car Lot.
+2019-06-11 15:39:26 TRACE root:17 - Logging Out...
+2019-06-11 15:39:49 TRACE root:17 - Your Account Has Been Created.
+2019-06-11 15:39:49 TRACE root:17 - Thank you for Logging In!
+
+2019-06-11 15:40:41 TRACE root:17 - Offer [car=[carMake=Tesla, carModel=X], offerAmount=120000.0, pending=true, accepted=false]
+2019-06-11 15:41:09 TRACE root:17 - Logging Out...
+2019-06-11 18:23:16 TRACE root:17 - Your Account Has Been Created.
+2019-06-11 18:23:16 TRACE root:17 - Thank you for Logging In!
+
+2019-06-11 18:24:01 TRACE root:17 - Car Has Been Added to Car Lot.
+2019-06-11 18:24:11 TRACE root:17 - Car Has Been Added to Car Lot.
+2019-06-11 18:24:20 TRACE root:17 - Car Has Been Added to Car Lot.
+2019-06-11 18:24:22 TRACE root:17 - Logging Out...
+2019-06-11 18:24:48 TRACE root:17 - Your Account Has Been Created.
+2019-06-11 18:24:48 TRACE root:17 - Thank you for Logging In!
+
+2019-06-11 18:25:04 TRACE root:17 - Offer [car=[carMake=Honda, carModel=Civic], offerAmount=56000.0, pending=true, accepted=false]
+2019-06-11 18:25:23 TRACE root:17 - Logging Out...
+2019-06-11 18:25:33 TRACE root:17 - Successful Login
+2019-06-11 18:25:33 TRACE root:17 - Thank you for Logging In!
+
+2019-06-11 18:29:23 TRACE root:17 - Successful Login
+2019-06-11 18:29:23 TRACE root:17 - Thank you for Logging In!
+
+2019-06-11 18:56:14 TRACE root:17 - Your Account Has Been Created.
+2019-06-11 18:56:14 TRACE root:17 - Thank you for Logging In!
+
+2019-06-11 18:56:25 TRACE root:17 - Car Has Been Added to Car Lot.
+2019-06-11 18:56:30 TRACE root:17 - Car Has Been Added to Car Lot.
+2019-06-11 18:56:33 TRACE root:17 - Logging Out...
+2019-06-11 18:56:45 TRACE root:17 - Your Account Has Been Created.
+2019-06-11 18:56:45 TRACE root:17 - Thank you for Logging In!
+
+2019-06-11 18:57:00 TRACE root:17 - Offer [car=[carMake=honda, carModel=civic], offerAmount=50000.0, pending=true, accepted=false]
+2019-06-11 18:57:09 TRACE root:17 - Logging Out...
+2019-06-11 18:57:17 TRACE root:17 - Successful Login
+2019-06-11 18:57:17 TRACE root:17 - Thank you for Logging In!
+
+2019-06-11 18:59:32 TRACE root:17 - Logging Out...
+2019-06-11 19:06:33 TRACE root:17 - Your Account Has Been Created.
+2019-06-11 19:06:33 TRACE root:17 - Thank you for Logging In!
+
+2019-06-11 19:06:39 TRACE root:17 - Car Has Been Added to Car Lot.
+2019-06-11 19:06:43 TRACE root:17 - Car Has Been Added to Car Lot.
+2019-06-11 19:06:45 TRACE root:17 - Logging Out...
+2019-06-11 19:06:54 TRACE root:17 - Your Account Has Been Created.
+2019-06-11 19:06:54 TRACE root:17 - Thank you for Logging In!
+
+2019-06-11 19:07:03 TRACE root:17 - Offer [car=[carMake=honda, carModel=civic], offerAmount=50000.0, pending=true, accepted=false]
+2019-06-11 19:07:23 TRACE root:17 - Offer [car=[carMake=lexus, carModel=white], offerAmount=600000.0, pending=true, accepted=false]
+2019-06-11 19:07:32 TRACE root:17 - Logging Out...
+2019-06-11 19:07:42 TRACE root:17 - Successful Login
+2019-06-11 19:07:42 TRACE root:17 - Thank you for Logging In!
+
+2019-06-11 19:16:55 TRACE root:17 - Your Account Has Been Created.
+2019-06-11 19:16:55 TRACE root:17 - Thank you for Logging In!
+
+2019-06-11 19:16:59 TRACE root:17 - Car Has Been Added to Car Lot.
+2019-06-11 19:17:03 TRACE root:17 - Car Has Been Added to Car Lot.
+2019-06-11 19:17:05 TRACE root:17 - Logging Out...
+2019-06-11 19:17:13 TRACE root:17 - Your Account Has Been Created.
+2019-06-11 19:17:13 TRACE root:17 - Thank you for Logging In!
+
+2019-06-11 19:17:23 TRACE root:17 - Offer [car=[carMake=lexus, carModel=white], offerAmount=45000.0, pending=true, accepted=false]
+2019-06-11 19:17:36 TRACE root:17 - Offer [car=[carMake=honda, carModel=civic], offerAmount=56000.0, pending=true, accepted=false]
+2019-06-11 19:17:41 TRACE root:17 - Logging Out...
+2019-06-11 19:17:51 TRACE root:17 - Successful Login
+2019-06-11 19:17:51 TRACE root:17 - Thank you for Logging In!
+
+2019-06-11 19:18:31 TRACE root:17 - Offer Has Been Accepted.
+2019-06-11 19:18:31 TRACE root:17 - Car Has Been Removed From Car Lot.
+2019-06-11 19:18:49 TRACE root:17 - Offer Has Been Accepted.
+2019-06-11 19:18:49 TRACE root:17 - Car Has Been Removed From Car Lot.
+2019-06-11 19:18:54 TRACE root:17 - Logging Out...
+2019-06-11 19:19:08 TRACE root:17 - Successful Login
+2019-06-11 19:19:08 TRACE root:17 - Thank you for Logging In!
+
+2019-06-11 19:20:48 TRACE root:17 - Logging Out...
+2019-06-11 20:15:22 TRACE root:17 - Successful Login
+2019-06-11 20:15:22 TRACE root:17 - Thank you for Logging In!
+
+2019-06-11 20:16:08 WARN  root:41 - Incorrect Username Or Password. Try Again Or Create An Account.
+2019-06-11 20:16:17 TRACE root:17 - Your Account Has Been Created.
+2019-06-11 20:16:17 TRACE root:17 - Thank you for Logging In!
+
+2019-06-11 20:18:30 TRACE root:17 - Car Has Been Added to Car Lot.
+2019-06-11 20:18:34 TRACE root:17 - Car Has Been Added to Car Lot.
+2019-06-11 20:18:37 TRACE root:17 - Logging Out...
+2019-06-11 20:19:39 TRACE root:17 - Your Account Has Been Created.
+2019-06-11 20:19:39 TRACE root:17 - Thank you for Logging In!
+
+2019-06-11 20:19:53 TRACE root:17 - Offer [car=[carMake=honda, carModel=civic], offerAmount=500000.0, pending=true, accepted=false]
+2019-06-11 20:20:08 TRACE root:17 - Offer [car=[carMake=lexus, carModel=white], offerAmount=70000.0, pending=true, accepted=false]
+2019-06-11 20:20:11 TRACE root:17 - Logging Out...
+2019-06-11 20:20:19 TRACE root:17 - Successful Login
+2019-06-11 20:20:19 TRACE root:17 - Thank you for Logging In!
+
+2019-06-11 20:20:25 TRACE root:17 - Offer Has Been Accepted.
+2019-06-11 20:20:25 TRACE root:17 - Car Has Been Removed From Car Lot.
+2019-06-11 20:22:50 TRACE root:17 - Your Account Has Been Created.
+2019-06-11 20:22:50 TRACE root:17 - Thank you for Logging In!
+
+2019-06-11 20:23:03 TRACE root:17 - Car Has Been Added to Car Lot.
+2019-06-11 20:23:07 TRACE root:17 - Car Has Been Added to Car Lot.
+2019-06-11 20:23:09 TRACE root:17 - Logging Out...
+2019-06-11 20:23:18 TRACE root:17 - Your Account Has Been Created.
+2019-06-11 20:23:18 TRACE root:17 - Thank you for Logging In!
+
+2019-06-11 20:23:31 TRACE root:17 - Offer [car=[carMake=tesla, carModel=x], offerAmount=120000.0, pending=true, accepted=false]
+2019-06-11 20:23:34 TRACE root:17 - Logging Out...
+2019-06-11 20:23:44 TRACE root:17 - Successful Login
+2019-06-11 20:23:44 TRACE root:17 - Thank you for Logging In!
+
+2019-06-11 20:34:21 TRACE root:17 - Your Account Has Been Created.
+2019-06-11 20:34:21 TRACE root:17 - Thank you for Logging In!
+
+2019-06-11 20:34:25 TRACE root:17 - Car Has Been Added to Car Lot.
+2019-06-11 20:34:30 TRACE root:17 - Car Has Been Added to Car Lot.
+2019-06-11 20:34:32 TRACE root:17 - Logging Out...
+2019-06-11 20:34:41 WARN  root:41 - Incorrect Username Or Password. Try Again Or Create An Account.
+2019-06-11 20:34:51 TRACE root:17 - Your Account Has Been Created.
+2019-06-11 20:34:51 TRACE root:17 - Thank you for Logging In!
+
+2019-06-11 20:35:01 TRACE root:17 - Offer [car=[carMake=lexus, carModel=white], offerAmount=600000.0, pending=true, accepted=false]
+2019-06-11 20:35:03 TRACE root:17 - Logging Out...
+2019-06-11 20:35:14 TRACE root:17 - Successful Login
+2019-06-11 20:35:14 TRACE root:17 - Thank you for Logging In!
+
+2019-06-11 20:35:19 TRACE root:17 - Offer Has Been Accepted.
+2019-06-11 20:35:19 TRACE root:17 - Car Has Been Removed From Car Lot.
+2019-06-11 20:35:30 TRACE root:17 - Logging Out...
+2019-06-11 20:35:38 TRACE root:17 - Successful Login
+2019-06-11 20:35:38 TRACE root:17 - Thank you for Logging In!
+
+2019-06-11 20:36:33 TRACE root:17 - Logging Out...
