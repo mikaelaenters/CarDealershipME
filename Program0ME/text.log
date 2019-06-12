@@ -377,3 +377,50 @@
 2019-06-11 20:35:38 TRACE root:17 - Thank you for Logging In!
 
 2019-06-11 20:36:33 TRACE root:17 - Logging Out...
+2019-06-11 22:15:14 TRACE root:17 - Your Account Has Been Created.
+2019-06-11 22:15:14 TRACE root:17 - Thank you for Logging In!
+
+2019-06-11 22:15:21 TRACE root:17 - Car Has Been Added to Car Lot.
+2019-06-11 22:15:24 TRACE root:17 - Car Has Been Added to Car Lot.
+2019-06-11 22:15:28 TRACE root:17 - Logging Out...
+2019-06-11 22:15:38 TRACE root:17 - Your Account Has Been Created.
+2019-06-11 22:15:38 TRACE root:17 - Thank you for Logging In!
+
+2019-06-11 22:15:48 TRACE root:17 - Offer [car=[carMake=honda, carModel=civic], offerAmount=23456.0, pending=true, accepted=false]
+2019-06-11 22:15:51 TRACE root:17 - Logging Out...
+2019-06-11 22:16:04 TRACE root:17 - Your Account Has Been Created.
+2019-06-11 22:16:04 TRACE root:17 - Thank you for Logging In!
+
+2019-06-11 22:16:09 TRACE root:17 - Offer Has Been Accepted.
+2019-06-11 22:16:09 TRACE root:17 - Car Has Been Removed From Car Lot.
+2019-06-11 22:16:38 TRACE root:17 - Logging Out...
+2019-06-11 22:16:49 TRACE root:17 - Your Account Has Been Created.
+2019-06-11 22:16:49 TRACE root:17 - Thank you for Logging In!
+
+2019-06-11 22:16:51 TRACE root:17 - Logging Out...
+2019-06-11 22:16:59 TRACE root:17 - Successful Login
+2019-06-11 22:16:59 TRACE root:17 - Thank you for Logging In!
+
+2019-06-11 22:44:59 TRACE root:17 - Successful Login
+2019-06-11 22:44:59 TRACE root:17 - Thank you for Logging In!
+
+2019-06-11 22:45:18 TRACE root:17 - Car Has Been Added to Car Lot.
+2019-06-11 22:45:23 TRACE root:17 - Car Has Been Added to Car Lot.
+2019-06-11 22:45:27 TRACE root:17 - Car Has Been Added to Car Lot.
+2019-06-11 22:45:29 TRACE root:17 - Logging Out...
+2019-06-11 22:45:38 TRACE root:17 - Successful Login
+2019-06-11 22:45:38 TRACE root:17 - Thank you for Logging In!
+
+2019-06-11 22:45:48 TRACE root:17 - Offer [car=[carMake=thel, carModel=jks], offerAmount=12334.0, pending=true, accepted=false]
+2019-06-11 22:45:58 TRACE root:17 - Offer [car=[carMake=kia, carModel=sportage], offerAmount=2322222.0, pending=true, accepted=false]
+2019-06-11 22:46:03 TRACE root:17 - Offer [car=[carMake=blue, carModel=blue], offerAmount=3455555.0, pending=true, accepted=false]
+2019-06-11 22:46:05 TRACE root:17 - Logging Out...
+2019-06-11 22:46:17 TRACE root:17 - Successful Login
+2019-06-11 22:46:17 TRACE root:17 - Thank you for Logging In!
+
+2019-06-11 22:46:25 TRACE root:17 - Offer Has Been Rejected.
+2019-06-11 22:46:45 TRACE root:17 - Offer Has Been Accepted.
+2019-06-11 22:46:45 TRACE root:17 - Car Has Been Removed From Car Lot.
+2019-06-11 22:46:50 TRACE root:17 - Offer Has Been Accepted.
+2019-06-11 22:46:50 TRACE root:17 - Car Has Been Removed From Car Lot.
+2019-06-11 22:46:55 TRACE root:17 - Logging Out...

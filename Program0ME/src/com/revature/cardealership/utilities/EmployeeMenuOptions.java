@@ -58,13 +58,33 @@ public class EmployeeMenuOptions implements EmployeeMenuManager {
 				LoggingUtility.trace("Car Has Been Removed From Car Lot.");
 			}
 	}
+	
 	public static void removeOffers(int index, Inventory inventory) {
 		inventory.getCurrentCarsWithOffers().remove(index);
 	}
 
 	public void option2(Inventory inventory) {
-	 //TODO 
-	//IMPLEMENT
+
+		int i = 0;
+
+		if(inventory.getCurrentCarsWithOffers().size() == 0) {
+			System.out.println("Sorry There Are NO CURRENT OFFERS To Reject!");
+		}
+		
+			else {
+				System.out.println("What CAR would you like to REJECT an offer on?");
+				for(Car car : inventory.getCurrentCarsWithOffers()) {
+					System.out.println("Car ID = " + i);
+					System.out.println(car.toString());
+					i++;
+				}
+				
+			
+				int index = UserInputUtility.validationPrompt(0, inventory.getCurrentCarsWithOffers().size() - 1);
+				Offer rejectedOffer = employeeManager.rejectOffer(index, inventory);
+				System.out.println(rejectedOffer.toString());
+				LoggingUtility.trace("Offer Has Been Rejected.");
+			}
 		
 //		int i = 0;
 //		List<Car> tempList = new ArrayList<Car>();
