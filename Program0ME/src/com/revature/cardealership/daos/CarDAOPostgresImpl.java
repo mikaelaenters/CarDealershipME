@@ -21,13 +21,24 @@ public class CarDAOPostgresImpl implements CarDAO {
 	@Override
 	public void createCar(Car car) {        //Add New Car to Car Lot
 		try {
-			PreparedStatement pstmt = conn.prepareStatement("insert into car(make, model, car_year)" + " values (?, ?, ?)");
+			PreparedStatement pstmt = conn.prepareStatement("insert into car(make, model, car_year) values (?, ?, ?)");
 			pstmt.setString(1, car.getCarMake());
 			pstmt.setString(2, car.getCarModel());
 			pstmt.setInt(3, car.getCarYear());
 			
+			conn.setAutoCommit(false);  //needs to be done to run transactions
+			Savepoint sp = conn.setSavepoint("Before Insert");
+
 			pstmt.execute();
+			
+			conn.commit();
+			conn.setAutoCommit(true);
 		} catch (SQLException e) {
+			try {
+				conn.rollback();
+			} catch (SQLException e1) {
+				e1.printStackTrace();
+			}
 			e.printStackTrace();
 		}
 		
@@ -86,18 +97,15 @@ public class CarDAOPostgresImpl implements CarDAO {
 	
 	@Override
 	public void updateCarPrice(int carId, double price) {
-		
 		try {
-			Statement stmt = conn.createStatement();
+			PreparedStatement pstmt = conn.prepareStatement("update car set price = ? where car_id = ?");
+			pstmt.setDouble(1, price);
+			pstmt.setInt(2, carId);
+			
 			conn.setAutoCommit(false);  //needs to be done to run transactions
 			Savepoint sp = conn.setSavepoint("Before Update");
-			String sql = "update car set price = " + price + " where car_id = " + carId;
-			int numberOfRows = stmt.executeUpdate(sql);
-				
-			if (numberOfRows > 1) {
-					conn.rollback(sp);
-					LoggingUtility.error("Too many rows affected");
-			}
+
+			pstmt.execute();
 			
 			conn.commit();
 			conn.setAutoCommit(true);
@@ -109,9 +117,7 @@ public class CarDAOPostgresImpl implements CarDAO {
 			}
 			e.printStackTrace();
 		}
-		
-		
-	}
+	}	
 	
 	@Override
 	public List<Car> getAllCarsOnLot() {                        //Cars on lot do not have price yet 

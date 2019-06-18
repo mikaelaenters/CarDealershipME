@@ -654,3 +654,94 @@
 2019-06-18 13:08:41 TRACE root:17 - You Made A Payment
 2019-06-18 13:09:57 TRACE root:17 - Successful Login
 2019-06-18 13:10:06 TRACE root:17 - You Made A Payment
+2019-06-18 14:49:42 TRACE root:17 - Successful Login
+2019-06-18 14:50:00 TRACE root:17 - You Made A Payment
+2019-06-18 15:03:05 TRACE root:17 - Successful Login
+2019-06-18 15:03:19 TRACE root:17 - You Made A Payment
+2019-06-18 15:42:53 TRACE root:17 - Successful Login
+2019-06-18 15:42:53 TRACE root:17 - Thank you for Logging In!
+
+2019-06-18 15:43:18 TRACE root:17 - Offer Has Been Accepted.
+2019-06-18 15:43:19 TRACE root:17 - Car Has Been Removed From Car Lot.
+2019-06-18 15:45:07 TRACE root:17 - Logging Out...
+2019-06-18 15:45:48 TRACE root:17 - Successful Login
+2019-06-18 15:45:48 TRACE root:17 - Thank you for Logging In!
+
+2019-06-18 15:45:57 TRACE root:17 - Logging Out...
+2019-06-18 15:46:21 TRACE root:17 - Your Account Has Been Created.
+2019-06-18 15:46:21 TRACE root:17 - Thank you for Logging In!
+
+2019-06-18 15:46:37 TRACE root:17 - Car Has Been Added to Car Lot.
+2019-06-18 15:46:52 TRACE root:17 - Logging Out...
+2019-06-18 15:49:26 TRACE root:17 - Successful Login
+2019-06-18 15:49:26 TRACE root:17 - Thank you for Logging In!
+
+2019-06-18 15:50:32 TRACE root:17 - Offer was created
+2019-06-18 15:50:48 TRACE root:17 - You Made A Payment
+2019-06-18 15:55:15 TRACE root:17 - Logging Out...
+2019-06-18 16:15:43 TRACE root:17 - Successful Login
+2019-06-18 16:15:43 TRACE root:17 - Thank you for Logging In!
+
+2019-06-18 16:21:42 TRACE root:17 - Offer was created
+2019-06-18 16:22:09 TRACE root:17 - You Made A Payment
+2019-06-18 16:22:16 TRACE root:17 - Logging Out...
+2019-06-18 16:22:35 TRACE root:17 - Your Account Has Been Created.
+2019-06-18 16:22:35 TRACE root:17 - Thank you for Logging In!
+
+2019-06-18 16:22:40 TRACE root:17 - Logging Out...
+2019-06-18 16:23:47 TRACE root:17 - Your Account Has Been Created.
+2019-06-18 16:23:47 TRACE root:17 - Thank you for Logging In!
+
+2019-06-18 16:24:27 TRACE root:17 - Offer Has Been Accepted.
+2019-06-18 16:24:27 TRACE root:17 - Car Has Been Removed From Car Lot.
+2019-06-18 16:28:07 TRACE root:17 - Successful Login
+2019-06-18 16:28:07 TRACE root:17 - Thank you for Logging In!
+
+2019-06-18 16:29:07 TRACE root:17 - Car Has Been Added to Car Lot.
+2019-06-18 16:29:10 TRACE root:17 - Logging Out...
+2019-06-18 16:29:21 TRACE root:17 - Successful Login
+2019-06-18 16:29:21 TRACE root:17 - Thank you for Logging In!
+
+2019-06-18 16:29:36 TRACE root:17 - Offer was created
+2019-06-18 16:29:40 TRACE root:17 - Logging Out...
+2019-06-18 16:29:54 TRACE root:17 - Successful Login
+2019-06-18 16:29:54 TRACE root:17 - Thank you for Logging In!
+
+2019-06-18 16:30:11 TRACE root:17 - Offer Has Been Accepted.
+2019-06-18 16:30:11 TRACE root:17 - Car Has Been Removed From Car Lot.
+2019-06-18 16:30:19 TRACE root:17 - Logging Out...
+2019-06-18 16:31:19 TRACE root:17 - Successful Login
+2019-06-18 16:31:19 TRACE root:17 - Thank you for Logging In!
+
+2019-06-18 16:31:52 TRACE root:17 - Logging Out...
+2019-06-18 16:36:46 TRACE root:17 - Successful Login
+2019-06-18 16:36:46 TRACE root:17 - Thank you for Logging In!
+
+2019-06-18 16:37:03 TRACE root:17 - Car Has Been Added to Car Lot.
+2019-06-18 16:37:12 TRACE root:17 - Logging Out...
+2019-06-18 16:39:10 TRACE root:17 - Successful Login
+2019-06-18 16:39:10 TRACE root:17 - Thank you for Logging In!
+
+2019-06-18 16:39:19 TRACE root:17 - Offer was created
+2019-06-18 16:39:28 TRACE root:17 - Logging Out...
+2019-06-18 16:39:42 TRACE root:17 - Successful Login
+2019-06-18 16:39:42 TRACE root:17 - Thank you for Logging In!
+
+2019-06-18 16:39:56 TRACE root:17 - Offer Has Been Rejected.
+2019-06-18 16:40:53 TRACE root:17 - Logging Out...
+2019-06-18 16:41:07 TRACE root:17 - Successful Login
+2019-06-18 16:41:07 TRACE root:17 - Thank you for Logging In!
+
+2019-06-18 16:41:17 TRACE root:17 - Offer was created
+2019-06-18 16:41:20 TRACE root:17 - Logging Out...
+2019-06-18 16:41:34 WARN  root:41 - Incorrect Username Or Password. Try Again Or Create An Account.
+2019-06-18 16:41:38 TRACE root:17 - Your Account Has Been Created.
+2019-06-18 16:41:38 TRACE root:17 - Thank you for Logging In!
+
+2019-06-18 16:41:40 TRACE root:17 - Logging Out...
+2019-06-18 16:41:53 TRACE root:17 - Successful Login
+2019-06-18 16:41:53 TRACE root:17 - Thank you for Logging In!
+
+2019-06-18 16:42:01 TRACE root:17 - Offer Has Been Accepted.
+2019-06-18 16:42:01 TRACE root:17 - Car Has Been Removed From Car Lot.
+2019-06-18 16:46:37 TRACE root:17 - Logging Out...

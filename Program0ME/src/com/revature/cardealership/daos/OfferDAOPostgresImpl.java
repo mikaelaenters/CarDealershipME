@@ -20,22 +20,16 @@ public class OfferDAOPostgresImpl implements OfferDAO{
 	@Override
 	public void createOffer(Offer offer) {         //Create a new offer 
 		try {
+			PreparedStatement pstmt = conn.prepareStatement("insert into offer(customer_id, car_id, offer_amount) values (?, ?, ?)");
+			pstmt.setInt(1, offer.getCustomerId());
+			pstmt.setInt(2, offer.getCarId());
+			pstmt.setDouble(3, offer.getOfferAmount());
 			
-			String sql = "insert into offer(customer_id, car_id, offer_amount) values (" + offer.getCustomerId()
-					+ ", " + offer.getCarId() + ", " + offer.getOfferAmount() + ")";
+			conn.setAutoCommit(false);  //needs to be done to run transactions
+			Savepoint sp = conn.setSavepoint("Before Update");
+
+			pstmt.execute();
 			
-			Statement stmt;
-				stmt = conn.createStatement();
-
-				conn.setAutoCommit(false);  //needs to be done to run transactions
-				Savepoint sp = conn.setSavepoint("Before Update");
-				int numberOfRows = stmt.executeUpdate(sql);
-				
-				if (numberOfRows > 1) {
-						conn.rollback(sp);
-						LoggingUtility.error("Too many rows affected");
-				}
-
 			conn.commit();
 			conn.setAutoCommit(true);
 		} catch (SQLException e) {
@@ -46,6 +40,34 @@ public class OfferDAOPostgresImpl implements OfferDAO{
 			}
 			e.printStackTrace();
 		}
+		
+//		try {
+//			
+//			String sql = "insert into offer(customer_id, car_id, offer_amount) values (" + offer.getCustomerId()
+//					+ ", " + offer.getCarId() + ", " + offer.getOfferAmount() + ")";
+//			
+//			Statement stmt;
+//				stmt = conn.createStatement();
+//
+//				conn.setAutoCommit(false);  //needs to be done to run transactions
+//				Savepoint sp = conn.setSavepoint("Before Update");
+//				int numberOfRows = stmt.executeUpdate(sql);
+//				
+//				if (numberOfRows > 1) {
+//						conn.rollback(sp);
+//						LoggingUtility.error("Too many rows affected");
+//				}
+//
+//			conn.commit();
+//			conn.setAutoCommit(true);
+//		} catch (SQLException e) {
+//			try {
+//				conn.rollback();
+//			} catch (SQLException e1) {
+//				e1.printStackTrace();
+//			}
+//			e.printStackTrace();
+//		}
 	}
 
 	@Override

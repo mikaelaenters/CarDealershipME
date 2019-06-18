@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Savepoint;
 import java.sql.Statement;
 import java.sql.Types;
 import java.util.ArrayList;
@@ -23,8 +24,19 @@ public class PaymentDAOPostgresImpl implements PaymentDAO {
 			pstmt.setInt(1, carId);
 			pstmt.setDouble(2, paymentAmount);
 		
+			conn.setAutoCommit(false);  //needs to be done to run transactions
+			Savepoint sp = conn.setSavepoint("Before Insert");
+
 			pstmt.execute();
+			
+			conn.commit();
+			conn.setAutoCommit(true);
 		} catch (SQLException e) {
+			try {
+				conn.rollback();
+			} catch (SQLException e1) {
+				e1.printStackTrace();
+			}
 			e.printStackTrace();
 		}
 		

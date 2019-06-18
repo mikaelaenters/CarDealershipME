@@ -31,12 +31,12 @@ public class Driver {
 			if(loginOption == 1) {
 				Customer customer = customerScreen.display();
 				System.out.println("Thank You for Logging In!\n");
-			//	LoggingUtility.trace("Thank you for Logging In!\n");
+				LoggingUtility.trace("Thank you for Logging In!\n");
 				do {
 					input = customerScreen.menuOptions(customer);
 				}while(input != 6);
 				
-				//System.out.println("Logging Out... ");
+				System.out.println("Logging Out... ");
 				LoggingUtility.trace("Logging Out...");
 	
 				System.exit(0);
@@ -44,14 +44,14 @@ public class Driver {
 		
 			else if(loginOption == 2) {
 				Employee employee = employeeScreen.display(); 
-			//System.out.println("Thank You for Logging In!\n");
+			System.out.println("Thank You for Logging In!\n");
 			LoggingUtility.trace("Thank you for Logging In!\n");
 				do {
 				input = employeeScreen.menuOptions();
 			}while(input != 6);
 				
-			//System.out.println("Logging Out...");
-				LoggingUtility.trace("Logging Out...");
+			System.out.println("Logging Out...");
+			LoggingUtility.trace("Logging Out...");
 
 				System.exit(0);	
 		}

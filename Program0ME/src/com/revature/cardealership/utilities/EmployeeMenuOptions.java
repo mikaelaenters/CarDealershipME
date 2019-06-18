@@ -33,13 +33,25 @@ public class EmployeeMenuOptions implements EmployeeMenuManager {
 				System.out.println(offer.toString());		
 			}
 
-			int offerId = UserInputUtility.offerIdPrompt();       //Choose the offer to accept
-		
+			int offerId;
+			boolean validOfferId;
+			
+			do {	
+				offerId = UserInputUtility.offerIdPrompt();       //Choose the offer to accept
+				validOfferId = false;
+				for(Offer offer : offerdao.getAllPendingOffers()) {
+					if(offer.getOfferId() == offerId) {
+						validOfferId = true; 
+						break;
+					}
+				}
+			}while(!validOfferId);
+			
 			Offer acceptedOffer = employeeManager.acceptOffer(offerId);
 			
 			if(acceptedOffer != null) {
 				LoggingUtility.trace("Offer Has Been Accepted.");
-				
+				System.out.println("Offer Has Been Accepted!");
 				cardao.updateCarActiveStatus(acceptedOffer.getCarId());    //Change to false to take off car lot
 				cardao.updateCarOwner(acceptedOffer.getCustomerId(), acceptedOffer.getCarId());  //Give car to owner
 				cardao.updateCarPrice(acceptedOffer.getCarId(), acceptedOffer.getOfferAmount());  //Set the total car price 
@@ -62,12 +74,25 @@ public class EmployeeMenuOptions implements EmployeeMenuManager {
 				System.out.println(offer.toString());		
 			}
 
-			int offerId = UserInputUtility.offerIdPrompt();       //Choose the offer to reject
+			int offerId;
+			boolean validOfferId;
+			
+			do {	
+				offerId = UserInputUtility.offerIdPrompt();       //Choose the offer to reject
+				validOfferId = false;
+				for(Offer offer : offerdao.getAllPendingOffers()) {
+					if(offer.getOfferId() == offerId) {
+						validOfferId = true; 
+						break;
+					}
+				}
+			}while(!validOfferId);
 		
 			Offer rejectedOffer = employeeManager.rejectOffer(offerId);
 			
 			if(rejectedOffer != null) {
 				LoggingUtility.trace("Offer Has Been Rejected.");
+				System.out.println("Offer Has Been Rejected!");
 			}
 		}
 	}
@@ -81,8 +106,6 @@ public class EmployeeMenuOptions implements EmployeeMenuManager {
 	}
 	
 	public void option4() {
-		
-		
 		if(cardao.getAllCarsOnLot().size() == 0) {
 			System.out.println("Sorry there are no cars in the lot");
 		}
@@ -93,9 +116,21 @@ public class EmployeeMenuOptions implements EmployeeMenuManager {
 					System.out.println(car.toString());
 				}
 			
-					int carId = UserInputUtility.carIdPrompt();
-					employeeManager.removeCar(carId);
-					LoggingUtility.trace("Car Has Been Removed From Car Lot.");
+				boolean validCarId;
+				int carId;
+				do {	
+					carId = UserInputUtility.carIdPrompt();
+					validCarId = false;
+					for(Car car : cardao.getAllCarsOnLot()) {
+						if(car.getCarKey() == carId) {
+							validCarId = true; 
+							break;
+						}
+					}
+				}while(!validCarId);
+				
+				employeeManager.removeCar(carId);
+				LoggingUtility.trace("Car Has Been Removed From Car Lot.");
 		}
 	}
 
@@ -106,6 +141,7 @@ public class EmployeeMenuOptions implements EmployeeMenuManager {
 			System.out.println("No payments have been made yet!");
 		}
 		else {
+			System.out.println("Here is a List of All Payments: ");
 			for(Payment p : paymentdao.getAllPayments()) {
 				System.out.println(p.toString());
 			}

@@ -46,7 +46,19 @@ public class CustomerMenuOptions implements CustomerMenuManager {
 					System.out.println(car.toString());
 				}
 		
-				int carId = UserInputUtility.carIdPrompt();
+				boolean validCarId;
+				int carId;
+				do {	
+					carId = UserInputUtility.carIdPrompt();
+					validCarId = false;
+					for(Car car : cardao.getAllCarsOnLot()) {
+						if(car.getCarKey() == carId) {
+							validCarId = true; 
+							break;
+						}
+					}
+				}while(!validCarId);
+				
 				double offerAmount = UserInputUtility.offerAmount();
 				offerdao.createOffer(new Offer(customerdao.getCustomerKeyByUsername(customer.getUserId()), carId, offerAmount));	
 				System.out.println("Your Offer Has Been Created.\n");
@@ -71,8 +83,19 @@ public class CustomerMenuOptions implements CustomerMenuManager {
 			for(Car car : cardao.getCarsByCustomerId(customerdao.getCustomerKeyByUsername(customer.getUserId()))) {
 				System.out.println(car.toString());
 			}
-			
-		int carId = UserInputUtility.carIdPrompt();
+		boolean validCarId;
+		int carId;
+		do {	
+			carId = UserInputUtility.carIdPrompt();
+			validCarId = false;
+			for(Car car : cardao.getCarsByCustomerId(customerdao.getCustomerKeyByUsername(customer.getUserId()))) {
+				if(car.getCarKey() == carId) {
+					validCarId = true; 
+					break;
+				}
+			}
+		}while(!validCarId);
+		
 		Car customerCar = cardao.getCarById(carId);
 		
 		double paymentAmount = customerCar.getTotalCarPrice()/12;
@@ -95,7 +118,19 @@ public class CustomerMenuOptions implements CustomerMenuManager {
 				System.out.println(car.toString());
 			}
 			
-		int carId = UserInputUtility.carIdPrompt();
+			boolean validCarId;
+			int carId;
+			do {	
+				carId = UserInputUtility.carIdPrompt();
+				validCarId = false;
+				for(Car car : cardao.getCarsByCustomerId(customerdao.getCustomerKeyByUsername(customer.getUserId()))) {
+					if(car.getCarKey() == carId) {
+						validCarId = true; 
+						break;
+					}
+				}
+			}while(!validCarId);
+			
 		Car customerCar = cardao.getCarById(carId);
 		
 			if(paymentdao.getPaymentsByCarId(carId).size() == 0) {

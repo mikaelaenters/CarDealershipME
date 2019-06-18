@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Savepoint;
 import java.sql.Statement;
 
 import com.revature.cardealership.pojo.Customer;
@@ -19,11 +20,21 @@ public class CustomerDAOPostgresImpl implements CustomerDAO{
 			PreparedStatement pstmt = conn.prepareStatement("insert into customer (username, user_password) values (?, ?)");
 			pstmt.setString(1, customer.getUserId());
 			pstmt.setString(2, customer.getPassword());
+			conn.setAutoCommit(false);  //needs to be done to run transactions
+			Savepoint sp = conn.setSavepoint("Before Insert");
+
 			pstmt.execute();
-		} catch (SQLException e) {
 			
+			conn.commit();
+			conn.setAutoCommit(true);
+		} catch (SQLException e) {
+			try {
+				conn.rollback();
+			} catch (SQLException e1) {
+				e1.printStackTrace();
+			}
 		}
-	}
+		}
 
 	@Override
 	public int getCustomerKeyByUsername(String username) {

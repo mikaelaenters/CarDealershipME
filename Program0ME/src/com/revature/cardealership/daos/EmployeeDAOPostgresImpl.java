@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Savepoint;
 import java.sql.Statement;
 
 import com.revature.cardealership.pojo.Employee;
@@ -19,11 +20,22 @@ public class EmployeeDAOPostgresImpl implements EmployeeDAO{
 			PreparedStatement pstmt = conn.prepareStatement("insert into employee (username, user_password) values (?, ?)");
 			pstmt.setString(1, employee.getUserId());
 			pstmt.setString(2, employee.getPassword());
-			pstmt.execute();
-		} catch (SQLException e) {
 			
+			conn.setAutoCommit(false);  //needs to be done to run transactions
+			Savepoint sp = conn.setSavepoint("Before Insert");
+
+			pstmt.execute();
+			
+			conn.commit();
+			conn.setAutoCommit(true);
+		} catch (SQLException e) {
+			try {
+				conn.rollback();
+			} catch (SQLException e1) {
+				e1.printStackTrace();
+			}
+			e.printStackTrace();
 		}
-		
 	}
 
 	@Override
