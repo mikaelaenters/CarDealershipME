@@ -1,12 +1,11 @@
 package com.revature.cardealership.utilities;
 
-import com.revature.cardealership.pojo.Inventory;
-
 public class WelcomeScreen implements PromptScreen {
 
-	public static final String WELCOME_MESSAGE = "Welcome to Mikaela's Used Cars!\n";
+	public static final String WELCOME_MESSAGE = "----------Welcome to Mikaela's Monster Car Shop!----------\n"
+			+ "*****All cars come in uniquely designed monster forms*****\n";
 	@Override
-	public void display(Inventory inventory) {
+	public void display() {
 		System.out.println(WELCOME_MESSAGE);
 
 	}

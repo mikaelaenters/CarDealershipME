@@ -1,16 +1,16 @@
 package com.revature.cardealership.utilities;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import com.revature.cardealership.daos.CarDAO;
+import com.revature.cardealership.daos.CarDAOPostgresImpl;
+import com.revature.cardealership.daos.OfferDAO;
+import com.revature.cardealership.daos.OfferDAOPostgresImpl;
+import com.revature.cardealership.daos.PaymentDAO;
+import com.revature.cardealership.daos.PaymentDAOPostgresImpl;
 import com.revature.cardealership.managerimpl.CustomerManagerImpl;
 import com.revature.cardealership.managerimpl.EmployeeManagerImpl;
 import com.revature.cardealership.managerinterface.CustomerManager;
 import com.revature.cardealership.managerinterface.EmployeeManager;
 import com.revature.cardealership.pojo.Car;
-import com.revature.cardealership.pojo.CarLot;
-import com.revature.cardealership.pojo.Customer;
-import com.revature.cardealership.pojo.Inventory;
 import com.revature.cardealership.pojo.Offer;
 import com.revature.cardealership.pojo.Payment;
 
@@ -18,136 +18,99 @@ public class EmployeeMenuOptions implements EmployeeMenuManager {
 
 	private static EmployeeManager employeeManager = new EmployeeManagerImpl(); 
 	private static CustomerManager customerManager = new CustomerManagerImpl();
+	private static CarDAO cardao = new CarDAOPostgresImpl();
+	private static OfferDAO offerdao = new OfferDAOPostgresImpl();
+	private static PaymentDAO paymentdao = new PaymentDAOPostgresImpl();
 	
-	public void option1(Inventory inventory) {
-		
-		int i = 0;
-
-		if(inventory.getCurrentCarsWithOffers().size() == 0) {
+	public void option1() {
+		if(offerdao.getAllPendingOffers().size() == 0) {
 			System.out.println("Sorry There Are NO CURRENT OFFERS To Accept!");
 		}
-		
-			else {
-				System.out.println("What CAR would you like to ACCEPT an offer on?");
-				for(Car car : inventory.getCurrentCarsWithOffers()) {
-					System.out.println("Car ID = " + i);
-					System.out.println(car.toString());
-					i++;
-				}
-				
+		else {
+			System.out.println("What OFFER would you like to ACCEPT?");
 			
-				int index = UserInputUtility.validationPrompt(0, inventory.getCurrentCarsWithOffers().size() - 1);
-				Offer acceptedOffer = employeeManager.acceptOffer(index, inventory);
+			for(Offer offer : offerdao.getAllPendingOffers()) {
+				System.out.println(offer.toString());		
+			}
+
+			int offerId = UserInputUtility.offerIdPrompt();       //Choose the offer to accept
+		
+			Offer acceptedOffer = employeeManager.acceptOffer(offerId);
+			
+			if(acceptedOffer != null) {
 				LoggingUtility.trace("Offer Has Been Accepted.");
 				
-				Customer customer = acceptedOffer.getCustomer();
-				Car currentCar = inventory.getCurrentCarsWithOffers().get(index);
-				
-				inventory.getCustomerList().get(customer.getCustomerIndex()-1).getOwnedCars().add(currentCar);
-				
-		
-				currentCar.setTotalCarPrice(acceptedOffer.getOfferAmount()); //Set totalCarPrice
-				
-				currentCar.setMonthlyPayment(customerManager.calculateMonthlyPayment(acceptedOffer.getOfferAmount())); //Sets Customer Monthly Payment
-				
-				
-				//TODO Remove off lot. 
-				removeOffers(index, inventory);
-				inventory.getCarLot().removeCarFromLot(currentCar);
+				cardao.updateCarActiveStatus(acceptedOffer.getCarId());    //Change to false to take off car lot
+				cardao.updateCarOwner(acceptedOffer.getCustomerId(), acceptedOffer.getCarId());  //Give car to owner
+				cardao.updateCarPrice(acceptedOffer.getCarId(), acceptedOffer.getOfferAmount());  //Set the total car price 
 				
 				LoggingUtility.trace("Car Has Been Removed From Car Lot.");
-			}
+			}	
+		}
 	}
 	
-	public static void removeOffers(int index, Inventory inventory) {
-		inventory.getCurrentCarsWithOffers().remove(index);
-	}
 
-	public void option2(Inventory inventory) {
-
-		int i = 0;
-
-		if(inventory.getCurrentCarsWithOffers().size() == 0) {
+	public void option2() {
+		
+		if(offerdao.getAllPendingOffers().size() == 0) {
 			System.out.println("Sorry There Are NO CURRENT OFFERS To Reject!");
 		}
-		
-			else {
-				System.out.println("What CAR would you like to REJECT an offer on?");
-				for(Car car : inventory.getCurrentCarsWithOffers()) {
-					System.out.println("Car ID = " + i);
-					System.out.println(car.toString());
-					i++;
-				}
-				
+		else {
+			System.out.println("What OFFER would you like to REJECT?");
 			
-				int index = UserInputUtility.validationPrompt(0, inventory.getCurrentCarsWithOffers().size() - 1);
-				Offer rejectedOffer = employeeManager.rejectOffer(index, inventory);
-				System.out.println(rejectedOffer.toString());
+			for(Offer offer : offerdao.getAllPendingOffers()) {
+				System.out.println(offer.toString());		
+			}
+
+			int offerId = UserInputUtility.offerIdPrompt();       //Choose the offer to reject
+		
+			Offer rejectedOffer = employeeManager.rejectOffer(offerId);
+			
+			if(rejectedOffer != null) {
 				LoggingUtility.trace("Offer Has Been Rejected.");
 			}
-		
-//		int i = 0;
-//		List<Car> tempList = new ArrayList<Car>();
-//			if(inventory.getCurrentCarOffers().size() == 0) {
-//				System.out.println("Sorry There Are NO CURRENT OFFERS To Reject!");
-//				LoggingUtility.trace("Sorry There Are NO CURRENT OFFERS To Reject!");
-//			}
-//			else {
-//				System.out.println("What CAR would you like to REJECT an offer on?");
-//				for(Car car : inventory.getCurrentCarOffers().keySet()) {
-//					tempList.add(car);
-//					System.out.println("Car ID = " + i);
-//					System.out.println(car.toString());
-//					i++;
-//				}
-//					
-//				int index = UserInputUtility.validationPrompt(0, tempList.size() - 1);
-//				Offer rejectedOffer = employeeManager.rejectOffer(tempList.get(index));
-//				LoggingUtility.trace("Offer Has Been Rejected.");
-//				System.out.println(rejectedOffer.toString());
-//			}
+		}
 	}
 	
-	public void option3(CarLot carLot) {
+	public void option3() {
 		String carMake = UserInputUtility.makeAndModelPrompt("Make");
 		String carModel = UserInputUtility.makeAndModelPrompt("Model");
-		employeeManager.addCar(carLot, carMake, carModel);
+		int carYear = UserInputUtility.getTheCarYear();
+		employeeManager.addCar(carMake, carModel, carYear);
 		LoggingUtility.trace("Car Has Been Added to Car Lot.");
 	}
 	
-	public void option4(CarLot carLot) {
-		int i = 0;
-		if(carLot.getCarLot().size() == 0) {
+	public void option4() {
+		
+		
+		if(cardao.getAllCarsOnLot().size() == 0) {
 			System.out.println("Sorry there are no cars in the lot");
 		}
 		else {
 			System.out.println("What CAR would you like to REMOVE from the Car Lot?");
 			
-				for(Car car : carLot.getCarLot()) {
-					System.out.println("Car ID = " + i);
+				for(Car car : cardao.getAllCarsOnLot()) {
 					System.out.println(car.toString());
-					i++;
-				}
-				
-					int index = UserInputUtility.validationPrompt(0, carLot.getCarLot().size()-1);
-					employeeManager.removeCar(carLot, carLot.getCarLot().get(index));
-					LoggingUtility.trace("Car Has Been Removed From Car Lot.");
 				}
 			
-		
+					int carId = UserInputUtility.carIdPrompt();
+					employeeManager.removeCar(carId);
+					LoggingUtility.trace("Car Has Been Removed From Car Lot.");
+		}
 	}
 
 
 	@Override
-	public void option5(Inventory inventory) {
-		if(inventory.getAllPayments().size() == 0) {
-			System.out.println("No Payments Have Been Made!");
+	public void option5() {
+		if(paymentdao.getAllPayments().size() == 0) {
+			System.out.println("No payments have been made yet!");
 		}
 		else {
-			for(Payment payment : inventory.getAllPayments()) {
-				System.out.println(payment.toString());
+			for(Payment p : paymentdao.getAllPayments()) {
+				System.out.println(p.toString());
 			}
 		}
+	
 	}
 
 }

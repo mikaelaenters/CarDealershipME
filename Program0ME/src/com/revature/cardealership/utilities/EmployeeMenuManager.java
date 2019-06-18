@@ -1,13 +1,11 @@
 package com.revature.cardealership.utilities;
 
-import com.revature.cardealership.pojo.CarLot;
-import com.revature.cardealership.pojo.Inventory;
-
 public interface EmployeeMenuManager {
-	public void option1(Inventory inventory);
-	public void option2(Inventory inventory);
-	public void option3(CarLot carLot);
-	public void option4(CarLot carLot);
-	public void option5(Inventory inventory);
+	
+	public void option1();
+	public void option2();
+	public void option3();
+	public void option4();
+	public void option5();
 
 }

@@ -1,68 +1,64 @@
 package com.revature.cardealership.managerimpl;
 
+import java.util.List;
+
+import com.revature.cardealership.daos.CarDAO;
+import com.revature.cardealership.daos.CarDAOPostgresImpl;
+import com.revature.cardealership.daos.EmployeeDAO;
+import com.revature.cardealership.daos.EmployeeDAOPostgresImpl;
+import com.revature.cardealership.daos.OfferDAO;
+import com.revature.cardealership.daos.OfferDAOPostgresImpl;
 import com.revature.cardealership.managerinterface.EmployeeManager;
 import com.revature.cardealership.pojo.Car;
-import com.revature.cardealership.pojo.CarLot;
 import com.revature.cardealership.pojo.Employee;
-import com.revature.cardealership.pojo.Inventory;
 import com.revature.cardealership.pojo.Offer;
 
 public class EmployeeManagerImpl implements EmployeeManager {
-	@Override
-	public Offer acceptOffer(int index, Inventory inventory) {
-		int highest = 0;
 	
-				for(int i = 1; i < inventory.getCurrentCarsWithOffers().get(index).getCarOffers().size(); i++) {
-					if(inventory.getCurrentCarsWithOffers().get(index).getCarOffers().get(highest).getOfferAmount() < inventory.getCurrentCarsWithOffers().get(index).getCarOffers().get(i).getOfferAmount()) {
-						inventory.getCurrentCarsWithOffers().get(index).getCarOffers().get(highest).setPending(false);
-						inventory.getCurrentCarsWithOffers().get(index).getCarOffers().get(highest).setRejected(true);
-						highest = i;
-						
-					}
-				}
-				
-				inventory.getCurrentCarsWithOffers().get(index).getCarOffers().get(highest).setAccepted(true);            //Accept the highest offer
-				inventory.getCurrentCarsWithOffers().get(index).getCarOffers().get(highest).setPending(false);
-				inventory.getCurrentCarsWithOffers().get(index).getCarOffers().get(highest).setRejected(false);
+	private static CarDAO cardao = new CarDAOPostgresImpl();
+	private static OfferDAO offerdao = new OfferDAOPostgresImpl();
+	private static EmployeeDAO employeedao = new EmployeeDAOPostgresImpl();
 	
-			return inventory.getCurrentCarsWithOffers().get(index).getCarOffers().get(highest);
-	}
-
-
 	@Override
-	public Offer rejectOffer(int index, Inventory inventory) {
-		int lowest = 0;
+	public Offer acceptOffer(int offerId) {
+		int carId = offerdao.getOfferById(offerId).getCarId();
 		
-
-		for(int i = 1; i < inventory.getCurrentCarsWithOffers().get(index).getCarOffers().size(); i++) {
-			if(inventory.getCurrentCarsWithOffers().get(index).getCarOffers().get(lowest).getOfferAmount() > inventory.getCurrentCarsWithOffers().get(index).getCarOffers().get(i).getOfferAmount()) {
-				lowest = i;
+			offerdao.updateAccepted(offerId);
+		
+			for(Offer offer: offerdao.getAllPendingCarOffers(carId)) {
+				offerdao.updateRejected(offer.getOfferId());
 			}
-		}
-		
-			inventory.getCurrentCarsWithOffers().get(index).getCarOffers().get(lowest).setAccepted(false);            //Reject the Lowest offer
-			inventory.getCurrentCarsWithOffers().get(index).getCarOffers().get(lowest).setPending(false);
-			inventory.getCurrentCarsWithOffers().get(index).getCarOffers().get(lowest).setRejected(true);
+			
+			return offerdao.getOfferById(offerId);
+	}
 
-		return inventory.getCurrentCarsWithOffers().get(index).getCarOffers().get(lowest);
+
+	@Override
+	public Offer rejectOffer(int offerId) {
+	
+		offerdao.updateRejected(offerId);
+		
+		return offerdao.getOfferById(offerId);
 	}
 	
 	@Override
-	public void addCar(CarLot carLot, String make, String model) {
-		carLot.addCarToLot(make, model);
+	public void addCar(String carMake, String carModel, int year) {
+		Car newCar = new Car(carMake, carModel, year);
+		cardao.createCar(newCar);
+		
 	}
 
 	@Override
-	public void removeCar(CarLot carLot, Car car) {
-		carLot.removeCarFromLot(car);
+	public void removeCar(int carId) {
+		cardao.updateCarActiveStatus(carId);
 	}
 
 
 	@Override
-	public Employee createAnAccount(String userId, String password, Inventory inventory) {
+	public void createAnAccount(String userId, String password) {
+
 		Employee newEmployee = new Employee(userId, password);
-		inventory.getEmployeeList().add(newEmployee);
-		return newEmployee;
+		employeedao.createEmployee(newEmployee);
 		
 		
 

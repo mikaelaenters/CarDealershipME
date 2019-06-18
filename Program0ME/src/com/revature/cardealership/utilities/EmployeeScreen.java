@@ -1,23 +1,24 @@
 package com.revature.cardealership.utilities;
 
+import com.revature.cardealership.daos.EmployeeDAO;
+import com.revature.cardealership.daos.EmployeeDAOPostgresImpl;
 import com.revature.cardealership.managerimpl.EmployeeManagerImpl;
 import com.revature.cardealership.managerinterface.EmployeeManager;
-import com.revature.cardealership.pojo.CarLot;
 import com.revature.cardealership.pojo.Employee;
-import com.revature.cardealership.pojo.Inventory;
-import com.revature.cardealership.pojo.User;
 
 public class EmployeeScreen implements EScreen {
-	private static LoginValidation validLogin = new LoginValidationImpl();
+	
 	private static  EmployeeManager eManager = new EmployeeManagerImpl();
 	private static PromptScreen employeeMenuScreen = new EmployeeMenu();
 	private static EmployeeMenuManager eOptions = new EmployeeMenuOptions();
-	private String userName,
-	   password;
-	public int employeeIndex;
+	private static EmployeeDAO employeedao = new EmployeeDAOPostgresImpl();
+	
+	private String username,
+	   			   password;
+	private boolean valid;
 	
 	@Override
-	public Employee display(Inventory inventory) {
+	public Employee display() {
 		
 	
 			do {
@@ -28,59 +29,56 @@ public class EmployeeScreen implements EScreen {
 				switch(loginOption) {
 					case 1: System.out.println("-------EMPLOYEE LOGIN-------\nPlease Enter "
 							+ "Your Username: ");
-							userName = UserInputUtility.getAccountInfo();
+							username = UserInputUtility.getAccountInfo();
 							System.out.println("Please Enter Your Password: ");
 							password = UserInputUtility.getAccountInfo();
 							
-							employeeIndex = validLogin.userValidation(inventory, 2, userName, password);
+						    valid = employeedao.employeeValidation(username, password);
 							
-							if(employeeIndex == -1) {
+							if(!valid) {
 								//System.out.println("Incorrect Username Or Password. Try Again Or Create An Account.");
 								LoggingUtility.warn("Incorrect Username Or Password. Try Again Or Create An Account.");
 							}
 							else {
 								LoggingUtility.trace("Successful Login");
-							}	
+							}
 							break;
 							
 					case 2:System.out.println("-------CREATE A EMPLOYEE ACCOUNT-------\nPlease Enter "
 							+ "Your Username: ");
-							userName = UserInputUtility.getAccountInfo();
+							username = UserInputUtility.getAccountInfo();
 							System.out.println("Please Enter Your Password: ");
 							password = UserInputUtility.getAccountInfo();
-							LoggingUtility.trace("Your Account Has Been Created.");
-							return eManager.createAnAccount(userName, password, inventory);
-									
+							eManager.createAnAccount(username, password);		
+							LoggingUtility.trace("Your Account Has Been Created.");	
+							valid = true;
 				}
 
-				}while(employeeIndex == -1);
+				}while(!valid);
 			
-			return inventory.getEmployeeList().get(employeeIndex);
+			return new Employee(username, password);
 	}
 
 	@Override
-	public int menuOptions(Inventory inventory, CarLot carLot, Employee employee) {
-		employeeMenuScreen.display(inventory);
+	public int menuOptions() {
+		employeeMenuScreen.display();
 		
 		int employeeOption = UserInputUtility.menuValidation(1, 6);
 		
 		switch(employeeOption) {
-		case 1: eOptions.option1(inventory);
+		case 1: eOptions.option1();
 			break;
-		case 2:	eOptions.option2(inventory);
+		case 2:	eOptions.option2();
 			break;
-		case 3: eOptions.option3(carLot);
+		case 3: eOptions.option3();
 			break;
-		case 4: eOptions.option4(carLot); 
+		case 4: eOptions.option4(); 
 			break;
-		case 5: eOptions.option5(inventory);
+		case 5: eOptions.option5();
 			break;
 		}
-		
-		
-		return employeeOption;
-		
-		
+	
+		return employeeOption;	
 	}
 
 }

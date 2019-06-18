@@ -8,17 +8,24 @@ public class Offer implements Serializable{
 	private Customer customer;
 	private Car car;
 	private double offerAmount;
-	//private int offerId;
-	private boolean accepted;
-	private boolean rejected;
-	private boolean pending;
-
+	private int offerId;
+	private int customerId; 
+	private int carId;
+	
 	//Constructors;
-	public Offer(Customer customer, Car car, double offerAmount) {
-		this.customer = customer;
-		this.car = car;
+	public Offer() {}
+	
+	public Offer(int customerId, int carId, double offerAmount) {
+		this.customerId = customerId;
+		this.carId = carId;
 		this.offerAmount = offerAmount;
-		this.pending = true;
+	}
+	
+	public Offer(int offerId, int customerId, int carId, double offerAmount) {
+		this.offerId = offerId;
+		this.customerId = customerId;
+		this.carId = carId;
+		this.offerAmount = offerAmount;
 	}
 	
 	//Getters &Setters;
@@ -34,42 +41,38 @@ public class Offer implements Serializable{
 	public void setCar(Car car) {
 		this.car = car;
 	}
+	public int getCustomerId() {
+		return customerId;
+	}
+	public void setCustomerId(int customerId) {
+		this.customerId = customerId;
+	}
+	public int getCarId() {
+		return carId;
+	}
+	public void setCarId(int carId) {
+		this.carId = carId;
+	}
 	public double getOfferAmount() {
 		return this.offerAmount;
 	}
 	public void setOfferAmount(double offerAmount) {
 		this.offerAmount = offerAmount;
 	}
-	public boolean isAccepted() {
-		return this.accepted;
-	}
-
-	public void setAccepted(boolean accepted) {
-		this.accepted = accepted;
-	}
-
-	public boolean isRejected() {
-		return this.rejected;
-	}
-
-	public void setRejected(boolean rejected) {
-		this.rejected = rejected;
-	}
 	
-	public void setPending(boolean pending) {
-		this.pending = pending;
+	public int getOfferId() {
+		return offerId;
 	}
-	
-	public boolean isPending() {
-		return this.pending;
-	}
-	
 
+	public void setOfferId(int offerId) {
+		this.offerId = offerId;
+	}
 
 	@Override
 	public String toString() {
-		return "Offer [car=" + car + ", offerAmount=" + offerAmount + ", pending=" + pending
-				+ ", accepted=" + accepted + "]";
+		return "Offer [ offerId=" + offerId + ", offerAmount=" + offerAmount + ", carId=" + carId + "]";
 	}
+
+	
 	
 }

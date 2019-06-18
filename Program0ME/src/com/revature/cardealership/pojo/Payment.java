@@ -3,25 +3,51 @@ package com.revature.cardealership.pojo;
 import java.io.Serializable;
 
 public class Payment implements Serializable{
-	private Customer customer; 
-	private int customerID;
+	private int paymentId;
 	private double paymentAmount;
-	private Car customerCar;
+	private int carId;
 	
-	
-	public Payment(Customer customer, double paymentAmount, Car customerCar) {
-		this.customer = customer;
+	//Constructors;
+	public Payment(int paymentId, double paymentAmount, int carId) {
+		this.paymentId = paymentId;
 		this.paymentAmount = paymentAmount;
-		this.customerCar = customerCar;
-		this.customerID = customer.getCustomerIndex();
+		this.carId = carId;
+	}
+
+	//Getters &Setters;
+	public int getPaymentId() {
+		return paymentId;
 	}
 
 
+	public void setPaymentId(int paymentId) {
+		this.paymentId = paymentId;
+	}
+
+
+	public double getPaymentAmount() {
+		return paymentAmount;
+	}
+
+
+	public void setPaymentAmount(double paymentAmount) {
+		this.paymentAmount = paymentAmount;
+	}
+
+
+	public int getCarId() {
+		return carId;
+	}
+
+
+	public void setCarId(int carId) {
+		this.carId = carId;
+	}
+
+	//Methods;
 	@Override
 	public String toString() {
-		return "Payment [customerID=" + customerID + ", paymentAmount=" + paymentAmount + ", customerCar=" + customerCar.toString()
-				+ "]";
+		return "Payment [paymentId=" + paymentId + ", paymentAmount=" + paymentAmount + ", carId=" + carId + "]";
 	}
-	
 	
 }
